@@ -9,38 +9,128 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as RoleRouteImport } from './routes/role'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as HelpRouteImport } from './routes/help'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SellerRegisterRouteImport } from './routes/seller.register'
+import { Route as BuyerRegisterRouteImport } from './routes/buyer.register'
 
+const RoleRoute = RoleRouteImport.update({
+  id: '/role',
+  path: '/role',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpRoute = HelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SellerRegisterRoute = SellerRegisterRouteImport.update({
+  id: '/seller/register',
+  path: '/seller/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuyerRegisterRoute = BuyerRegisterRouteImport.update({
+  id: '/buyer/register',
+  path: '/buyer/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/help': typeof HelpRoute
+  '/login': typeof LoginRoute
+  '/role': typeof RoleRoute
+  '/buyer/register': typeof BuyerRegisterRoute
+  '/seller/register': typeof SellerRegisterRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/help': typeof HelpRoute
+  '/login': typeof LoginRoute
+  '/role': typeof RoleRoute
+  '/buyer/register': typeof BuyerRegisterRoute
+  '/seller/register': typeof SellerRegisterRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/help': typeof HelpRoute
+  '/login': typeof LoginRoute
+  '/role': typeof RoleRoute
+  '/buyer/register': typeof BuyerRegisterRoute
+  '/seller/register': typeof SellerRegisterRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/help'
+    | '/login'
+    | '/role'
+    | '/buyer/register'
+    | '/seller/register'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/help'
+    | '/login'
+    | '/role'
+    | '/buyer/register'
+    | '/seller/register'
+  id:
+    | '__root__'
+    | '/'
+    | '/help'
+    | '/login'
+    | '/role'
+    | '/buyer/register'
+    | '/seller/register'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  HelpRoute: typeof HelpRoute
+  LoginRoute: typeof LoginRoute
+  RoleRoute: typeof RoleRoute
+  BuyerRegisterRoute: typeof BuyerRegisterRoute
+  SellerRegisterRoute: typeof SellerRegisterRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/role': {
+      id: '/role'
+      path: '/role'
+      fullPath: '/role'
+      preLoaderRoute: typeof RoleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/help': {
+      id: '/help'
+      path: '/help'
+      fullPath: '/help'
+      preLoaderRoute: typeof HelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +138,30 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/seller/register': {
+      id: '/seller/register'
+      path: '/seller/register'
+      fullPath: '/seller/register'
+      preLoaderRoute: typeof SellerRegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/buyer/register': {
+      id: '/buyer/register'
+      path: '/buyer/register'
+      fullPath: '/buyer/register'
+      preLoaderRoute: typeof BuyerRegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  HelpRoute: HelpRoute,
+  LoginRoute: LoginRoute,
+  RoleRoute: RoleRoute,
+  BuyerRegisterRoute: BuyerRegisterRoute,
+  SellerRegisterRoute: SellerRegisterRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
