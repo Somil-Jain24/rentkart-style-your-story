@@ -27,6 +27,10 @@ import { Route as BuyerProfileRouteImport } from './routes/buyer.profile'
 import { Route as BuyerOrdersRouteImport } from './routes/buyer.orders'
 import { Route as BuyerNotificationsRouteImport } from './routes/buyer.notifications'
 import { Route as BuyerBrowseRouteImport } from './routes/buyer.browse'
+import { Route as AdminPayoutsRouteImport } from './routes/admin.payouts'
+import { Route as AdminListingsRouteImport } from './routes/admin.listings'
+import { Route as AdminKycRouteImport } from './routes/admin.kyc'
+import { Route as AdminDisputesRouteImport } from './routes/admin.disputes'
 import { Route as SellerListingsNewRouteImport } from './routes/seller.listings.new'
 import { Route as BuyerProductIdRouteImport } from './routes/buyer.product.$id'
 import { Route as BuyerCheckoutIdRouteImport } from './routes/buyer.checkout.$id'
@@ -121,6 +125,26 @@ const BuyerBrowseRoute = BuyerBrowseRouteImport.update({
   path: '/buyer/browse',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminPayoutsRoute = AdminPayoutsRouteImport.update({
+  id: '/payouts',
+  path: '/payouts',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminListingsRoute = AdminListingsRouteImport.update({
+  id: '/listings',
+  path: '/listings',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminKycRoute = AdminKycRouteImport.update({
+  id: '/kyc',
+  path: '/kyc',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminDisputesRoute = AdminDisputesRouteImport.update({
+  id: '/disputes',
+  path: '/disputes',
+  getParentRoute: () => AdminRoute,
+} as any)
 const SellerListingsNewRoute = SellerListingsNewRouteImport.update({
   id: '/new',
   path: '/new',
@@ -139,11 +163,15 @@ const BuyerCheckoutIdRoute = BuyerCheckoutIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
+  '/admin': typeof AdminRouteWithChildren
   '/help': typeof HelpRoute
   '/login': typeof LoginRoute
   '/role': typeof RoleRoute
   '/zoom-parallax-demo': typeof ZoomParallaxDemoRoute
+  '/admin/disputes': typeof AdminDisputesRoute
+  '/admin/kyc': typeof AdminKycRoute
+  '/admin/listings': typeof AdminListingsRoute
+  '/admin/payouts': typeof AdminPayoutsRoute
   '/buyer/browse': typeof BuyerBrowseRoute
   '/buyer/notifications': typeof BuyerNotificationsRoute
   '/buyer/orders': typeof BuyerOrdersRoute
@@ -162,11 +190,15 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
+  '/admin': typeof AdminRouteWithChildren
   '/help': typeof HelpRoute
   '/login': typeof LoginRoute
   '/role': typeof RoleRoute
   '/zoom-parallax-demo': typeof ZoomParallaxDemoRoute
+  '/admin/disputes': typeof AdminDisputesRoute
+  '/admin/kyc': typeof AdminKycRoute
+  '/admin/listings': typeof AdminListingsRoute
+  '/admin/payouts': typeof AdminPayoutsRoute
   '/buyer/browse': typeof BuyerBrowseRoute
   '/buyer/notifications': typeof BuyerNotificationsRoute
   '/buyer/orders': typeof BuyerOrdersRoute
@@ -186,11 +218,15 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
+  '/admin': typeof AdminRouteWithChildren
   '/help': typeof HelpRoute
   '/login': typeof LoginRoute
   '/role': typeof RoleRoute
   '/zoom-parallax-demo': typeof ZoomParallaxDemoRoute
+  '/admin/disputes': typeof AdminDisputesRoute
+  '/admin/kyc': typeof AdminKycRoute
+  '/admin/listings': typeof AdminListingsRoute
+  '/admin/payouts': typeof AdminPayoutsRoute
   '/buyer/browse': typeof BuyerBrowseRoute
   '/buyer/notifications': typeof BuyerNotificationsRoute
   '/buyer/orders': typeof BuyerOrdersRoute
@@ -216,6 +252,10 @@ export interface FileRouteTypes {
     | '/login'
     | '/role'
     | '/zoom-parallax-demo'
+    | '/admin/disputes'
+    | '/admin/kyc'
+    | '/admin/listings'
+    | '/admin/payouts'
     | '/buyer/browse'
     | '/buyer/notifications'
     | '/buyer/orders'
@@ -239,6 +279,10 @@ export interface FileRouteTypes {
     | '/login'
     | '/role'
     | '/zoom-parallax-demo'
+    | '/admin/disputes'
+    | '/admin/kyc'
+    | '/admin/listings'
+    | '/admin/payouts'
     | '/buyer/browse'
     | '/buyer/notifications'
     | '/buyer/orders'
@@ -262,6 +306,10 @@ export interface FileRouteTypes {
     | '/login'
     | '/role'
     | '/zoom-parallax-demo'
+    | '/admin/disputes'
+    | '/admin/kyc'
+    | '/admin/listings'
+    | '/admin/payouts'
     | '/buyer/browse'
     | '/buyer/notifications'
     | '/buyer/orders'
@@ -281,7 +329,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AdminRoute: typeof AdminRoute
+  AdminRoute: typeof AdminRouteWithChildren
   HelpRoute: typeof HelpRoute
   LoginRoute: typeof LoginRoute
   RoleRoute: typeof RoleRoute
@@ -430,6 +478,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BuyerBrowseRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/payouts': {
+      id: '/admin/payouts'
+      path: '/payouts'
+      fullPath: '/admin/payouts'
+      preLoaderRoute: typeof AdminPayoutsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/listings': {
+      id: '/admin/listings'
+      path: '/listings'
+      fullPath: '/admin/listings'
+      preLoaderRoute: typeof AdminListingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/kyc': {
+      id: '/admin/kyc'
+      path: '/kyc'
+      fullPath: '/admin/kyc'
+      preLoaderRoute: typeof AdminKycRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/disputes': {
+      id: '/admin/disputes'
+      path: '/disputes'
+      fullPath: '/admin/disputes'
+      preLoaderRoute: typeof AdminDisputesRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/seller/listings/new': {
       id: '/seller/listings/new'
       path: '/new'
@@ -454,6 +530,22 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AdminRouteChildren {
+  AdminDisputesRoute: typeof AdminDisputesRoute
+  AdminKycRoute: typeof AdminKycRoute
+  AdminListingsRoute: typeof AdminListingsRoute
+  AdminPayoutsRoute: typeof AdminPayoutsRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminDisputesRoute: AdminDisputesRoute,
+  AdminKycRoute: AdminKycRoute,
+  AdminListingsRoute: AdminListingsRoute,
+  AdminPayoutsRoute: AdminPayoutsRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
 interface SellerListingsRouteChildren {
   SellerListingsNewRoute: typeof SellerListingsNewRoute
 }
@@ -468,7 +560,7 @@ const SellerListingsRouteWithChildren = SellerListingsRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AdminRoute: AdminRoute,
+  AdminRoute: AdminRouteWithChildren,
   HelpRoute: HelpRoute,
   LoginRoute: LoginRoute,
   RoleRoute: RoleRoute,

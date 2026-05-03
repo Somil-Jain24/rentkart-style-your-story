@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { User, MapPin, CreditCard, Receipt, Gift, Settings, LogOut, ChevronRight, BadgeCheck } from "lucide-react";
 import { BuyerHeader } from "@/components/rentkart/BuyerHeader";
 import { BuyerBottomNav } from "@/components/rentkart/BottomNav";
@@ -9,6 +9,11 @@ export const Route = createFileRoute("/buyer/profile")({
 });
 
 function Profile() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    navigate({ to: "/" });
+  };
   return (
     <div className="min-h-screen bg-background pb-24 lg:pb-12">
       <BuyerHeader />
@@ -40,7 +45,7 @@ function Profile() {
           <Row icon={Settings} title="App settings & notifications" />
         </div>
 
-        <button className="mt-6 inline-flex h-11 items-center gap-2 rounded-lg border border-error/30 bg-error-soft px-4 text-sm font-semibold text-error">
+        <button onClick={handleLogout} className="mt-6 inline-flex h-11 items-center gap-2 rounded-lg border border-error/30 bg-error-soft px-4 text-sm font-semibold text-error">
           <LogOut className="h-4 w-4" /> Sign out
         </button>
       </div>

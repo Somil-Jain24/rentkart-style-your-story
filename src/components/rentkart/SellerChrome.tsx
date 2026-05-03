@@ -1,10 +1,15 @@
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
 import { LayoutDashboard, Boxes, Package, BarChart3, User, HelpCircle, LogOut } from "lucide-react";
 import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
 
 export function SellerSidebar() {
   const path = useRouterState({ select: (s) => s.location.pathname });
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    navigate({ to: "/" });
+  };
   const items = [
     { to: "/seller", label: "Dashboard", icon: LayoutDashboard, exact: true },
     { to: "/seller/listings", label: "My Listings", icon: Boxes },
@@ -31,7 +36,7 @@ export function SellerSidebar() {
       </nav>
       <div className="space-y-0.5 border-t border-border p-3">
         <Link to="/help" className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-surface-alt"><HelpCircle className="h-4 w-4" /> Help & support</Link>
-        <button className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-surface-alt"><LogOut className="h-4 w-4" /> Sign out</button>
+        <button onClick={handleLogout} className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-surface-alt"><LogOut className="h-4 w-4" /> Sign out</button>
       </div>
     </aside>
   );
