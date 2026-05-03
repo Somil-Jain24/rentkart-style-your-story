@@ -21,6 +21,7 @@ export type Listing = {
   sellerName: string;
   sellerVerified: boolean;
   imageHue: number; // for placeholder gradient
+  imageSrc?: string;
   available: boolean;
   badge?: string;
   description: string;
