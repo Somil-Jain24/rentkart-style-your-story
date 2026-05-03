@@ -27,7 +27,7 @@ export function ZoomParallax({ images }: ZoomParallaxProps) {
 	const scale8 = useTransform(scrollYProgress, [0, 1], [1, 8]);
 	const scale9 = useTransform(scrollYProgress, [0, 1], [1, 9]);
 
-	const scales = [scale4, scale5, scale6, scale5, scale6, scale8, scale9];
+	const scales = [scale9, scale5, scale6, scale5, scale6, scale8, scale4];
 
 	return (
 		<div ref={container} className="relative h-[300vh]">
