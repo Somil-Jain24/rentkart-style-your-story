@@ -102,7 +102,7 @@ export const listings: Listing[] = [
     id: "RK-40031", title: "Bosch GSB 13 RE Impact Drill", category: "tools", categoryName: "Tools & Equipment", subcategory: "Drill Machine",
     city: "Pune", pincode: "411001", distanceKm: 1.1, dailyRate: 149, itemValue: 4500, rating: 4.7, reviewCount: 219,
     condition: "Excellent", sellerId: "S-3401", sellerName: "ToolBay", sellerVerified: true,
-    imageHue: 45, available: true, badge: "Under ₹200/day",
+    imageHue: 45, imageSrc: "https://cdn.builder.io/api/v1/image/assets%2F684460e6637049f4ac75efefd246d064%2F19146374ac214d8da0919b413273b2e0?format=webp&width=800&height=1200", available: true, badge: "Under ₹200/day",
     description: "Reversible impact drill with 13mm chuck, drill bit set (10 pcs) and carry case. Ideal for home renovation.",
   },
   {
@@ -231,6 +231,54 @@ export const listings: Listing[] = [
     imageHue: 220, imageSrc: "https://cdn.builder.io/api/v1/image/assets%2F684460e6637049f4ac75efefd246d064%2Fb46e9fec5a3e472ca7cff7b59bcc5a3a?format=webp&width=800&height=1200", available: true,
     description: "Latest Apple Watch Series 9 with Always-On display, fitness tracking and health monitoring. Includes original band and charger.",
     specs: [{ label: "Screen", value: "1.9\" LTPO OLED" }, { label: "Water Resistance", value: "50m" }, { label: "Battery", value: "18 hours" }],
+  },
+
+  // Travel & Lifestyle
+  {
+    id: "RK-D0131", title: "Premium Hard Shell Travel Luggage Set", category: "outdoor", categoryName: "Outdoor & Travel", subcategory: "Luggage",
+    city: "Mumbai", pincode: "400050", distanceKm: 4.3, dailyRate: 299, itemValue: 18000, rating: 4.8, reviewCount: 87,
+    condition: "Like New", sellerId: "S-3750", sellerName: "TravelGear Co.", sellerVerified: true,
+    imageHue: 200, imageSrc: "https://cdn.builder.io/api/v1/image/assets%2F684460e6637049f4ac75efefd246d064%2Ff1120d4b5498493a9b4c95c0fa9bf6fd?format=webp&width=800&height=1200", available: true, badge: "Travel Ready",
+    description: "Durable hard-shell luggage with 360° spinner wheels and TSA lock. Perfect for domestic & international travel. Set of 2 pieces.",
+    specs: [{ label: "Material", value: "Polycarbonate shell" }, { label: "Weight", value: "2.5 kg" }],
+  },
+
+  // Sports & Fitness
+  {
+    id: "RK-A0092", title: "Adjustable Weight Bench with Leg Extension", category: "sports", categoryName: "Sports & Fitness", subcategory: "Weight Bench",
+    city: "Delhi", pincode: "110015", distanceKm: 6.2, dailyRate: 249, itemValue: 22000, rating: 4.7, reviewCount: 54,
+    condition: "Excellent", sellerId: "S-3920", sellerName: "FitEquip Rentals", sellerVerified: true,
+    imageHue: 200, imageSrc: "https://cdn.builder.io/api/v1/image/assets%2F684460e6637049f4ac75efefd246d064%2F53a832f9c9414b4e9403d9e9fd882245?format=webp&width=800&height=1200", available: true,
+    description: "Multi-position adjustable bench with leg extension attachment. Folds for easy storage. Includes dumbbells (up to 30kg).",
+    specs: [{ label: "Max Weight", value: "150 kg" }, { label: "Adjustable Positions", value: "5+" }],
+  },
+
+  // Home Appliances
+  {
+    id: "RK-F0141", title: "Havells Portable Air Cooler 60L", category: "furniture", categoryName: "Furniture & Appliances", subcategory: "Air Cooler",
+    city: "Hyderabad", pincode: "500030", distanceKm: 3.8, dailyRate: 199, itemValue: 16000, rating: 4.6, reviewCount: 102,
+    condition: "Excellent", sellerId: "S-3940", sellerName: "ApplianceRent", sellerVerified: true,
+    imageHue: 200, imageSrc: "https://cdn.builder.io/api/v1/image/assets%2F684460e6637049f4ac75efefd246d064%2Fb85819bea6cd4054ba59194fb71591f7?format=webp&width=800&height=1200", available: true,
+    description: "Portable evaporative air cooler with 60L tank capacity. Perfect for summer rentals and outdoor events. Includes water inlet hose.",
+    specs: [{ label: "Cooling Capacity", value: "1800 m³/h" }, { label: "Tank", value: "60L" }],
+  },
+
+  {
+    id: "RK-G0151", title: "Dyson Pure Cool Air Purifier + Fan", category: "electronics", categoryName: "Electronics", subcategory: "Air Purifier",
+    city: "Bengaluru", pincode: "560045", distanceKm: 5.1, dailyRate: 349, itemValue: 42000, rating: 4.9, reviewCount: 76,
+    condition: "Like New", sellerId: "S-3960", sellerName: "SmartHome Hub", sellerVerified: true,
+    imageHue: 210, imageSrc: "https://cdn.builder.io/api/v1/image/assets%2F684460e6637049f4ac75efefd246d064%2Fc9ca6644c9a94c07bc00e733298fba96?format=webp&width=800&height=1200", available: true, badge: "Premium",
+    description: "Advanced HEPA air purifier with oscillating fan function. Removes 99.95% allergens and pollutants. Whisper-quiet operation.",
+    specs: [{ label: "Filter Type", value: "HEPA + Activated Carbon" }, { label: "Coverage", value: "60m²" }, { label: "Modes", value: "Auto + Manual" }],
+  },
+
+  {
+    id: "RK-H0161", title: "Maharaja Whiteline Quartz Heater", category: "furniture", categoryName: "Furniture & Appliances", subcategory: "Heater",
+    city: "Pune", pincode: "411040", distanceKm: 4.5, dailyRate: 149, itemValue: 8500, rating: 4.5, reviewCount: 98,
+    condition: "Excellent", sellerId: "S-3980", sellerName: "SeasonalRent", sellerVerified: true,
+    imageHue: 10, imageSrc: "https://cdn.builder.io/api/v1/image/assets%2F684460e6637049f4ac75efefd246d064%2F08b2f4b2-d6c0-46d7-a7f6-3c1c8d2e7b9a?format=webp&width=800&height=1200", available: true,
+    description: "Portable quartz heater with adjustable thermostat. Safe, energy-efficient, and ideal for winters. Tip-over protection included.",
+    specs: [{ label: "Power", value: "1200W" }, { label: "Coverage", value: "Room-sized" }, { label: "Safety", value: "Auto shut-off" }],
   },
 ];
 
