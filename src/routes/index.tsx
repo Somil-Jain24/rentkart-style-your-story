@@ -35,8 +35,8 @@ function Landing() {
 
   const parallaxImages = [
     {
-      src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
-      alt: 'Professional power tools kit',
+      src: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
+      alt: 'Premium designer lehenga',
     },
     {
       src: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&h=800&fit=crop&crop=entropy&auto=format&q=80',
