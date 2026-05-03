@@ -1,5 +1,9 @@
 // Mock data for The RentVerse marketplace
 // Realistic Indian fashion rental context
+import lehengaMaroon from "@/assets/ref-lehenga-maroon.jpg";
+import sherwaniIvory from "@/assets/ref-sherwani-ivory.jpg";
+import sareePink from "@/assets/ref-saree-pink.jpg";
+import jewelleryKundan from "@/assets/ref-jewellery-kundan.jpg";
 
 export type Listing = {
   id: string;
