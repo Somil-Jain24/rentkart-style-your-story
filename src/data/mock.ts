@@ -85,7 +85,7 @@ export const listings: Listing[] = [
     id: "RK-30021", title: "Sony A7 IV Mirrorless + 24-70mm", category: "cameras", categoryName: "Cameras & Lenses", subcategory: "Mirrorless",
     city: "Mumbai", pincode: "400028", distanceKm: 8.0, dailyRate: 1799, itemValue: 285000, rating: 4.9, reviewCount: 124,
     condition: "Excellent", sellerId: "S-3310", sellerName: "FrameRent", sellerVerified: true,
-    imageHue: 30, available: true, badge: "Pro Pick",
+    imageHue: 30, imageSrc: "https://cdn.builder.io/api/v1/image/assets%2F684460e6637049f4ac75efefd246d064%2F407a73984dc84f60a4cba0953fadb966?format=webp&width=800&height=1200", available: true, badge: "Pro Pick",
     description: "Full-frame Sony A7 IV with Sony G Master 24-70mm f/2.8 lens, 2 batteries, 128GB SD card and pelican case.",
     specs: [{ label: "Sensor", value: "33 MP Full-frame" }, { label: "Video", value: "4K 60p 10-bit" }],
   },
@@ -93,7 +93,7 @@ export const listings: Listing[] = [
     id: "RK-30022", title: "DJI RS 3 Pro Gimbal", category: "cameras", categoryName: "Cameras & Lenses", subcategory: "Gimbal / Stabiliser",
     city: "Hyderabad", pincode: "500032", distanceKm: 5.5, dailyRate: 549, itemValue: 78000, rating: 4.8, reviewCount: 67,
     condition: "Like New", sellerId: "S-3340", sellerName: "Cine Cart", sellerVerified: true,
-    imageHue: 35, available: true,
+    imageHue: 35, imageSrc: "https://cdn.builder.io/api/v1/image/assets%2F684460e6637049f4ac75efefd246d064%2Fca135942da764866b8ca943d2384e513?format=webp&width=800&height=1200", available: true,
     description: "Carbon-fibre 3-axis gimbal supporting up to 4.5kg payloads. LiDAR focusing kit included.",
   },
 
@@ -211,6 +211,26 @@ export const listings: Listing[] = [
     condition: "Like New", sellerId: "S-4101", sellerName: "TinyWheels", sellerVerified: true,
     imageHue: 15, available: true,
     description: "Travel-system stroller compatible with KeyFit infant car-seat. Sanitised between every rental.",
+  },
+
+  // Electronics (Continued)
+  {
+    id: "RK-20014", title: "Premium PA Speaker System (Pair)", category: "electronics", categoryName: "Electronics", subcategory: "Speaker System",
+    city: "Mumbai", pincode: "400055", distanceKm: 5.3, dailyRate: 799, itemValue: 42000, rating: 4.8, reviewCount: 42,
+    condition: "Like New", sellerId: "S-3280", sellerName: "AudioPro Rentals", sellerVerified: true,
+    imageHue: 200, imageSrc: "https://cdn.builder.io/api/v1/image/assets%2F684460e6637049f4ac75efefd246d064%2Fcb48ae7925ba4ab68ab03edb7a94c240?format=webp&width=800&height=1200", available: true, badge: "Pro Sound",
+    description: "High-performance dual-woofer PA speakers perfect for events, parties and professional settings. Includes speaker stands and cables.",
+    specs: [{ label: "Power", value: "600W RMS" }, { label: "Frequency", value: "40Hz - 20kHz" }, { label: "Impedance", value: "8 Ohms" }],
+  },
+
+  // Wearables
+  {
+    id: "RK-E0121", title: "Apple Watch Series 9 (45mm)", category: "electronics", categoryName: "Electronics", subcategory: "Smartwatch",
+    city: "Bengaluru", pincode: "560040", distanceKm: 3.2, dailyRate: 299, itemValue: 42000, rating: 4.9, reviewCount: 156,
+    condition: "Like New", sellerId: "S-3250", sellerName: "TechGear Rentals", sellerVerified: true,
+    imageHue: 220, imageSrc: "https://cdn.builder.io/api/v1/image/assets%2F684460e6637049f4ac75efefd246d064%2Fb46e9fec5a3e472ca7cff7b59bcc5a3a?format=webp&width=800&height=1200", available: true,
+    description: "Latest Apple Watch Series 9 with Always-On display, fitness tracking and health monitoring. Includes original band and charger.",
+    specs: [{ label: "Screen", value: "1.9\" LTPO OLED" }, { label: "Water Resistance", value: "50m" }, { label: "Battery", value: "18 hours" }],
   },
 ];
 
