@@ -43,8 +43,8 @@ function Landing() {
       alt: 'Luxury watch collection',
     },
     {
-      src: 'https://images.unsplash.com/photo-1517457373614-b7152f800fd1?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
-      alt: 'Professional camera equipment',
+      src: 'https://images.unsplash.com/photo-1606986628025-35d57e735ae0?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
+      alt: 'Professional camera lens kit',
     },
     {
       src: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
@@ -59,8 +59,8 @@ function Landing() {
       alt: 'Outdoor adventure gear',
     },
     {
-      src: 'https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
-      alt: 'Premium furniture',
+      src: 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=800&h=800&fit=crop&crop=entropy&auto=format&q=80',
+      alt: 'Professional video camera equipment',
     },
   ];
 
