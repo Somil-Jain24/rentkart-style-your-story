@@ -99,7 +99,7 @@ function Landing() {
             <div className="grid grid-cols-2 gap-4">
               {featured.map((l, i) => (
                 <div key={l.id} className={i % 2 === 0 ? "translate-y-6" : ""}>
-                  <ProductImage hue={l.imageHue} variant="hero" />
+                  <ProductImage hue={l.imageHue} src={l.imageSrc} variant="hero" label={l.title} />
                   <p className="mt-2 px-1 text-xs font-medium text-foreground line-clamp-1">{l.title}</p>
                   <p className="px-1 font-mono text-xs text-muted-foreground">₹{l.dailyRate.toLocaleString("en-IN")}/day</p>
                 </div>

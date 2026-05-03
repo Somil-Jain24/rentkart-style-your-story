@@ -39,7 +39,7 @@ function PDP() {
         {/* Gallery */}
         <section>
           <div className="relative">
-            <ProductImage hue={listing.imageHue} variant="hero" label={listing.title} />
+            <ProductImage hue={listing.imageHue} src={listing.imageSrc} variant="hero" label={listing.title} />
             <button aria-label="Previous" className="absolute left-3 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-card/95 shadow-soft hover:bg-card">
               <ChevronLeft className="h-5 w-5" />
             </button>
