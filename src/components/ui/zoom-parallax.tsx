@@ -1,7 +1,7 @@
 'use client';
 
 import { useScroll, useTransform, motion } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 interface Image {
 	src: string;
@@ -15,6 +15,7 @@ interface ZoomParallaxProps {
 
 export function ZoomParallax({ images }: ZoomParallaxProps) {
 	const container = useRef(null);
+	const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 	const { scrollYProgress } = useScroll({
 		target: container,
 		offset: ['start start', 'end end'],
@@ -33,6 +34,7 @@ export function ZoomParallax({ images }: ZoomParallaxProps) {
 			<div className="sticky top-0 h-screen overflow-hidden">
 				{images.map(({ src, alt }, index) => {
 					const scale = scales[index % scales.length];
+					const isHovered = hoveredIndex === index;
 
 					return (
 						<motion.div
@@ -40,7 +42,11 @@ export function ZoomParallax({ images }: ZoomParallaxProps) {
 							style={{ scale }}
 							className={`absolute top-0 flex h-full w-full items-center justify-center ${index === 1 ? '[&>div]:!-top-[30vh] [&>div]:!left-[5vw] [&>div]:!h-[30vh] [&>div]:!w-[35vw]' : ''} ${index === 2 ? '[&>div]:!-top-[10vh] [&>div]:!-left-[25vw] [&>div]:!h-[45vh] [&>div]:!w-[20vw]' : ''} ${index === 3 ? '[&>div]:!left-[27.5vw] [&>div]:!h-[25vh] [&>div]:!w-[25vw]' : ''} ${index === 4 ? '[&>div]:!top-[27.5vh] [&>div]:!left-[5vw] [&>div]:!h-[25vh] [&>div]:!w-[20vw]' : ''} ${index === 5 ? '[&>div]:!top-[27.5vh] [&>div]:!-left-[22.5vw] [&>div]:!h-[25vh] [&>div]:!w-[30vw]' : ''} ${index === 6 ? '[&>div]:!top-[22.5vh] [&>div]:!left-[25vw] [&>div]:!h-[15vh] [&>div]:!w-[15vw]' : ''} `}
 						>
-							<div className="relative h-[25vh] w-[25vw]">
+							<div
+								className={`relative h-[25vh] w-[25vw] cursor-pointer transition-all duration-200 ${isHovered ? 'ring-2 ring-primary shadow-lg' : ''}`}
+								onMouseEnter={() => setHoveredIndex(index)}
+								onMouseLeave={() => setHoveredIndex(null)}
+							>
 								<img
 									src={src || '/placeholder.svg'}
 									alt={alt || `Parallax image ${index + 1}`}
@@ -50,6 +56,18 @@ export function ZoomParallax({ images }: ZoomParallaxProps) {
 						</motion.div>
 					);
 				})}
+
+				{/* Tooltip showing which image is hovered */}
+				{hoveredIndex !== null && (
+					<motion.div
+						className="absolute bottom-8 left-1/2 -translate-x-1/2 rounded-lg bg-foreground px-4 py-2 text-sm font-medium text-background shadow-lg z-50"
+						initial={{ opacity: 0, y: 10 }}
+						animate={{ opacity: 1, y: 0 }}
+						exit={{ opacity: 0, y: 10 }}
+					>
+						{images[hoveredIndex]?.alt || `Image ${hoveredIndex + 1}`}
+					</motion.div>
+				)}
 			</div>
 		</div>
 	);
