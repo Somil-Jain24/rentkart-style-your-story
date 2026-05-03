@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, Sparkles, Truck, Wallet, ArrowRight, Star } from "lucide-react";
 import { Logo } from "@/components/rentkart/Logo";
+import { ThemeToggle } from "@/components/rentkart/ThemeToggle";
 import { Footer } from "@/components/rentkart/Footer";
 import { ProductImage } from "@/components/rentkart/ProductImage";
 import { listings } from "@/data/mock";
