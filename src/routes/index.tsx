@@ -39,12 +39,12 @@ function Landing() {
       alt: 'Luxury watch collection',
     },
     {
-      src: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&h=800&fit=crop&crop=entropy&auto=format&q=80',
-      alt: 'Luxury watch collection',
+      src: 'https://images.unsplash.com/photo-1595777707802-8b1b59d0efc5?w=800&h=800&fit=crop&crop=entropy&auto=format&q=80',
+      alt: 'Premium silk saree collection',
     },
     {
-      src: 'https://images.unsplash.com/photo-1606986628025-35d57e735ae0?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
-      alt: 'Professional camera lens kit',
+      src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
+      alt: 'Professional drone equipment',
     },
     {
       src: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
