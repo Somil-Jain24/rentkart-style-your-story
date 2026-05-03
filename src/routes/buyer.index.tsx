@@ -25,7 +25,7 @@ function BuyerHome() {
 
       {/* Hero / search */}
       <section className="bg-warm-gradient">
-        <div className="mx-auto max-w-7xl px-4 py-8 lg:px-8 lg:py-12">
+        <div className="mx-auto max-w-7xl px-4 py-6 lg:px-8 lg:py-8">
           <p className="font-mono text-xs uppercase tracking-widest text-primary">Rent anything, anywhere in India</p>
           <h1 className="mt-1.5 font-display text-3xl font-bold sm:text-4xl lg:text-5xl text-balance">
             Why buy when you can <span className="text-primary">rent it for the day?</span>
