@@ -44,6 +44,12 @@ export const Route = createRootRoute({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "The RentVerse — India's Premier Rental Marketplace" },
+      { name: "description", content: "RentVerse is a premium Indian rental marketplace for fashion and more, connecting renters and listers." },
+      { property: "og:description", content: "RentVerse is a premium Indian rental marketplace for fashion and more, connecting renters and listers." },
+      { name: "twitter:description", content: "RentVerse is a premium Indian rental marketplace for fashion and more, connecting renters and listers." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b7dcb433-40ea-406b-af16-9eb9f7fb899a/id-preview-b8bd195a--d4e3da9f-6483-4f08-8338-b570a9b26e7d.lovable.app-1777805301726.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b7dcb433-40ea-406b-af16-9eb9f7fb899a/id-preview-b8bd195a--d4e3da9f-6483-4f08-8338-b570a9b26e7d.lovable.app-1777805301726.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
