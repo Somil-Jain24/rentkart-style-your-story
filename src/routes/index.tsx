@@ -39,12 +39,12 @@ function Landing() {
       alt: 'Luxury watch collection',
     },
     {
-      src: 'https://cdn.builder.io/api/v1/image/assets%2F2d547a2e2a57493ba4a269465a99e81e%2Fb39de5e4fb1d4e3a9d92d046d2a0316e?format=webp&width=800&height=1200',
-      alt: 'Premium bridal lehenga',
-    },
-    {
       src: 'https://cdn.builder.io/api/v1/image/assets%2F2d547a2e2a57493ba4a269465a99e81e%2F8164aa30dda44b488ab412aa6c25a057?format=webp&width=800&height=1200',
       alt: 'Professional drone equipment',
+    },
+    {
+      src: 'https://cdn.builder.io/api/v1/image/assets%2F2d547a2e2a57493ba4a269465a99e81e%2Fb39de5e4fb1d4e3a9d92d046d2a0316e?format=webp&width=800&height=1200',
+      alt: 'Premium bridal lehenga',
     },
     {
       src: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
