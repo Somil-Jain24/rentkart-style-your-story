@@ -16,7 +16,7 @@ function Login() {
           <ArrowLeft className="h-4 w-4" /> Back
         </Link>
         <Logo />
-        <span className="w-12" />
+        <ThemeToggle />
       </header>
       <main className="mx-auto grid w-full max-w-md gap-6 px-4 py-8 lg:py-16">
         <div>
