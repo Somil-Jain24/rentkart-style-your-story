@@ -31,12 +31,15 @@ function Landing() {
             <Link to="/help" className="hover:text-foreground">Help</Link>
             <Link to="/login" className="hover:text-foreground">Sign in</Link>
           </nav>
-          <Link
-            to="/role"
-            className="inline-flex h-10 items-center gap-1.5 rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-hover"
-          >
-            Get started <ArrowRight className="h-4 w-4" />
-          </Link>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <Link
+              to="/role"
+              className="inline-flex h-10 items-center gap-1.5 rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-hover"
+            >
+              Get started <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </header>
 
