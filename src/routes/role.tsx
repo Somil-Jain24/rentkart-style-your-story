@@ -17,7 +17,10 @@ function RoleSelect() {
     <div className="min-h-screen bg-warm-gradient">
       <header className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 lg:px-8">
         <Link to="/"><Logo /></Link>
-        <Link to="/login" className="text-sm font-medium text-muted-foreground hover:text-foreground">Sign in instead</Link>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <Link to="/login" className="text-sm font-medium text-muted-foreground hover:text-foreground">Sign in instead</Link>
+        </div>
       </header>
 
       <main className="mx-auto max-w-5xl px-4 py-10 lg:px-8 lg:py-20">
