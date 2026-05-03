@@ -1,6 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { LayoutDashboard, Boxes, Package, BarChart3, User, HelpCircle, LogOut } from "lucide-react";
 import { Logo } from "./Logo";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function SellerSidebar() {
   const path = useRouterState({ select: (s) => s.location.pathname });
