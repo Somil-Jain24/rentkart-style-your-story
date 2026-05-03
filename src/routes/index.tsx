@@ -90,19 +90,19 @@ function Landing() {
 
       {/* Hero */}
       <section className="bg-warm-gradient">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-12">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-3 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-6">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground shadow-soft">
               <Sparkles className="h-3.5 w-3.5 text-primary" />
               Trusted by 1.2 lakh+ Indians for events, work, travel & more
             </span>
 
-            <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl text-balance">
+            <h1 className="mt-2 font-display text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl text-balance">
               Rent anything.<br />
               <span className="text-primary">Buy nothing.</span>
             </h1>
 
-            <p className="mt-5 max-w-lg text-lg text-muted-foreground text-pretty">
+            <p className="mt-3 max-w-lg text-lg text-muted-foreground text-pretty">
               Lehengas, MacBooks, drones, drills, scooters, sofas — rent premium items from verified sellers across 24 Indian cities. Your hold is fully refundable, escrow-protected and back in 48 hours.
             </p>
 
