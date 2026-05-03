@@ -4,7 +4,10 @@ import { Logo } from "@/components/rentkart/Logo";
 import { ThemeToggle } from "@/components/rentkart/ThemeToggle";
 import { Footer } from "@/components/rentkart/Footer";
 import { ProductImage } from "@/components/rentkart/ProductImage";
+import { ZoomParallax } from "@/components/ui/zoom-parallax";
 import { listings } from "@/data/mock";
+import React from "react";
+import Lenis from "@studio-freight/lenis";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -18,6 +21,48 @@ export const Route = createFileRoute("/")({
 
 function Landing() {
   const featured = listings.slice(0, 4);
+
+  React.useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, []);
+
+  const parallaxImages = [
+    {
+      src: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&h=800&fit=crop&crop=entropy&auto=format&q=80',
+      alt: 'Luxury watch collection',
+    },
+    {
+      src: 'https://cdn.builder.io/api/v1/image/assets%2F2d547a2e2a57493ba4a269465a99e81e%2F8164aa30dda44b488ab412aa6c25a057?format=webp&width=800&height=1200',
+      alt: 'Professional drone equipment',
+    },
+    {
+      src: 'https://cdn.builder.io/api/v1/image/assets%2F2d547a2e2a57493ba4a269465a99e81e%2Fb39de5e4fb1d4e3a9d92d046d2a0316e?format=webp&width=800&height=1200',
+      alt: 'Premium bridal lehenga',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
+      alt: 'Professional drones',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&h=800&fit=crop&crop=entropy&auto=format&q=80',
+      alt: 'Premium electronics',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
+      alt: 'Outdoor adventure gear',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=800&h=800&fit=crop&crop=entropy&auto=format&q=80',
+      alt: 'Professional video camera equipment',
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -157,6 +202,15 @@ function Landing() {
             </li>
           ))}
         </ol>
+      </section>
+
+      {/* Featured gallery with zoom parallax */}
+      <section className="bg-background py-12 lg:py-20">
+        <div className="mx-auto mb-10 max-w-7xl px-4 lg:px-8">
+          <p className="font-mono text-xs uppercase tracking-widest text-primary">Featured items</p>
+          <h2 className="mt-2 font-display text-3xl font-bold sm:text-4xl">Explore our premium collections</h2>
+        </div>
+        <ZoomParallax images={parallaxImages} />
       </section>
 
       <Footer />

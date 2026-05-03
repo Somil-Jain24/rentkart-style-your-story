@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ZoomParallaxDemoRouteImport } from './routes/zoom-parallax-demo'
 import { Route as RoleRouteImport } from './routes/role'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as HelpRouteImport } from './routes/help'
@@ -30,6 +31,11 @@ import { Route as SellerListingsNewRouteImport } from './routes/seller.listings.
 import { Route as BuyerProductIdRouteImport } from './routes/buyer.product.$id'
 import { Route as BuyerCheckoutIdRouteImport } from './routes/buyer.checkout.$id'
 
+const ZoomParallaxDemoRoute = ZoomParallaxDemoRouteImport.update({
+  id: '/zoom-parallax-demo',
+  path: '/zoom-parallax-demo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RoleRoute = RoleRouteImport.update({
   id: '/role',
   path: '/role',
@@ -137,6 +143,7 @@ export interface FileRoutesByFullPath {
   '/help': typeof HelpRoute
   '/login': typeof LoginRoute
   '/role': typeof RoleRoute
+  '/zoom-parallax-demo': typeof ZoomParallaxDemoRoute
   '/buyer/browse': typeof BuyerBrowseRoute
   '/buyer/notifications': typeof BuyerNotificationsRoute
   '/buyer/orders': typeof BuyerOrdersRoute
@@ -159,6 +166,7 @@ export interface FileRoutesByTo {
   '/help': typeof HelpRoute
   '/login': typeof LoginRoute
   '/role': typeof RoleRoute
+  '/zoom-parallax-demo': typeof ZoomParallaxDemoRoute
   '/buyer/browse': typeof BuyerBrowseRoute
   '/buyer/notifications': typeof BuyerNotificationsRoute
   '/buyer/orders': typeof BuyerOrdersRoute
@@ -182,6 +190,7 @@ export interface FileRoutesById {
   '/help': typeof HelpRoute
   '/login': typeof LoginRoute
   '/role': typeof RoleRoute
+  '/zoom-parallax-demo': typeof ZoomParallaxDemoRoute
   '/buyer/browse': typeof BuyerBrowseRoute
   '/buyer/notifications': typeof BuyerNotificationsRoute
   '/buyer/orders': typeof BuyerOrdersRoute
@@ -206,6 +215,7 @@ export interface FileRouteTypes {
     | '/help'
     | '/login'
     | '/role'
+    | '/zoom-parallax-demo'
     | '/buyer/browse'
     | '/buyer/notifications'
     | '/buyer/orders'
@@ -228,6 +238,7 @@ export interface FileRouteTypes {
     | '/help'
     | '/login'
     | '/role'
+    | '/zoom-parallax-demo'
     | '/buyer/browse'
     | '/buyer/notifications'
     | '/buyer/orders'
@@ -250,6 +261,7 @@ export interface FileRouteTypes {
     | '/help'
     | '/login'
     | '/role'
+    | '/zoom-parallax-demo'
     | '/buyer/browse'
     | '/buyer/notifications'
     | '/buyer/orders'
@@ -273,6 +285,7 @@ export interface RootRouteChildren {
   HelpRoute: typeof HelpRoute
   LoginRoute: typeof LoginRoute
   RoleRoute: typeof RoleRoute
+  ZoomParallaxDemoRoute: typeof ZoomParallaxDemoRoute
   BuyerBrowseRoute: typeof BuyerBrowseRoute
   BuyerNotificationsRoute: typeof BuyerNotificationsRoute
   BuyerOrdersRoute: typeof BuyerOrdersRoute
@@ -291,6 +304,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/zoom-parallax-demo': {
+      id: '/zoom-parallax-demo'
+      path: '/zoom-parallax-demo'
+      fullPath: '/zoom-parallax-demo'
+      preLoaderRoute: typeof ZoomParallaxDemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/role': {
       id: '/role'
       path: '/role'
@@ -452,6 +472,7 @@ const rootRouteChildren: RootRouteChildren = {
   HelpRoute: HelpRoute,
   LoginRoute: LoginRoute,
   RoleRoute: RoleRoute,
+  ZoomParallaxDemoRoute: ZoomParallaxDemoRoute,
   BuyerBrowseRoute: BuyerBrowseRoute,
   BuyerNotificationsRoute: BuyerNotificationsRoute,
   BuyerOrdersRoute: BuyerOrdersRoute,
