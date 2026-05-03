@@ -11,7 +11,7 @@ export function ListingCard({ listing }: { listing: Listing }) {
       className="group block rounded-2xl border border-border bg-card p-2 transition-all hover:shadow-card focus-visible:shadow-card"
     >
       <div className="relative">
-        <ProductImage hue={listing.imageHue} label={listing.title} />
+        <ProductImage hue={listing.imageHue} src={listing.imageSrc} label={listing.title} />
         {listing.badge && (
           <span className="absolute left-3 top-3 rounded-full bg-card/95 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-primary-deep shadow-soft">
             {listing.badge}

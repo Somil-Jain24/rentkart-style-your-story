@@ -4,7 +4,7 @@ import { SellerSidebar, SellerTopbar } from "@/components/rentkart/SellerChrome"
 import { ProductImage } from "@/components/rentkart/ProductImage";
 
 export const Route = createFileRoute("/seller/listings/new")({
-  head: () => ({ meta: [{ title: "Create listing — RentKart Seller" }] }),
+  head: () => ({ meta: [{ title: "Create listing — The RentVerse Seller" }] }),
   component: NewListing,
 });
 

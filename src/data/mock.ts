@@ -1,5 +1,9 @@
-// Mock data for RentKart marketplace
+// Mock data for The RentVerse marketplace
 // Realistic Indian fashion rental context
+import lehengaMaroon from "@/assets/ref-lehenga-maroon.jpg";
+import sherwaniIvory from "@/assets/ref-sherwani-ivory.jpg";
+import sareePink from "@/assets/ref-saree-pink.jpg";
+import jewelleryKundan from "@/assets/ref-jewellery-kundan.jpg";
 
 export type Listing = {
   id: string;
@@ -17,6 +21,7 @@ export type Listing = {
   sellerName: string;
   sellerVerified: boolean;
   imageHue: number; // for placeholder gradient
+  imageSrc?: string;
   available: boolean;
   badge?: string;
   description: string;
@@ -47,11 +52,11 @@ const make = (i: number, p: Partial<Listing>): Listing => ({
 });
 
 export const listings: Listing[] = [
-  make(0, { title: "Royal Maroon Banarasi Lehenga", category: "Lehenga", dailyRate: 1450, itemValue: 28500, badge: "Wedding Pick" }),
-  make(1, { title: "Ivory Sherwani with Dupatta", category: "Sherwani", city: "Delhi", pincode: "110001", dailyRate: 1100, itemValue: 22000, sellerName: "Karan Menswear", sellerId: "S-2310" }),
-  make(2, { title: "Pastel Pink Sequin Saree", category: "Saree", city: "Bengaluru", pincode: "560001", dailyRate: 850, itemValue: 14500, rating: 4.9, reviewCount: 213, sellerName: "Meera Drapes", sellerId: "S-1908" }),
+  make(0, { title: "Royal Maroon Banarasi Lehenga", category: "Lehenga", dailyRate: 1450, itemValue: 28500, badge: "Wedding Pick", imageSrc: lehengaMaroon }),
+  make(1, { title: "Ivory Sherwani with Dupatta", category: "Sherwani", city: "Delhi", pincode: "110001", dailyRate: 1100, itemValue: 22000, sellerName: "Karan Menswear", sellerId: "S-2310", imageSrc: sherwaniIvory }),
+  make(2, { title: "Pastel Pink Sequin Saree", category: "Saree", city: "Bengaluru", pincode: "560001", dailyRate: 850, itemValue: 14500, rating: 4.9, reviewCount: 213, sellerName: "Meera Drapes", sellerId: "S-1908", imageSrc: sareePink }),
   make(3, { title: "Emerald Anarkali Suit", category: "Anarkali", city: "Hyderabad", pincode: "500032", dailyRate: 720, itemValue: 11800, sellerName: "Zarina Boutique", sellerId: "S-2455", badge: "Trending" }),
-  make(4, { title: "Designer Kundan Necklace Set", category: "Jewellery", city: "Jaipur", pincode: "302001", dailyRate: 480, itemValue: 9500, sellerName: "Rajwada Ornaments", sellerId: "S-2102", rating: 4.8, reviewCount: 98 }),
+  make(4, { title: "Designer Kundan Necklace Set", category: "Jewellery", city: "Jaipur", pincode: "302001", dailyRate: 480, itemValue: 9500, sellerName: "Rajwada Ornaments", sellerId: "S-2102", rating: 4.8, reviewCount: 98, imageSrc: jewelleryKundan }),
   make(5, { title: "Velvet Bandhgala Suit", category: "Bandhgala", city: "Mumbai", pincode: "400028", dailyRate: 1350, itemValue: 26000, sellerName: "Atelier Verma", sellerId: "S-2199" }),
   make(6, { title: "Mint Organza Lehenga", category: "Lehenga", city: "Pune", pincode: "411001", dailyRate: 980, itemValue: 18500, sellerName: "Saanvi Studio", sellerId: "S-2280", badge: "Under ₹1500" }),
   make(7, { title: "Black Tuxedo with Bow Tie", category: "Tuxedo", city: "Gurugram", pincode: "122002", dailyRate: 1250, itemValue: 19000, sellerName: "Suit Society", sellerId: "S-2055", sellerVerified: true }),

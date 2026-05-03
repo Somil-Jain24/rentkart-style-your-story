@@ -4,7 +4,7 @@ import { SellerSidebar, SellerTopbar } from "@/components/rentkart/SellerChrome"
 import { SellerBottomNav } from "@/components/rentkart/BottomNav";
 
 export const Route = createFileRoute("/seller/analytics")({
-  head: () => ({ meta: [{ title: "Analytics — RentKart Seller" }] }),
+  head: () => ({ meta: [{ title: "Analytics — The RentVerse Seller" }] }),
   component: Analytics,
 });
 

@@ -3,7 +3,7 @@ import { ArrowLeft, Check } from "lucide-react";
 import { Logo } from "@/components/rentkart/Logo";
 
 export const Route = createFileRoute("/buyer/register")({
-  head: () => ({ meta: [{ title: "Create renter account — RentKart" }] }),
+  head: () => ({ meta: [{ title: "Create renter account — The RentVerse" }] }),
   component: BuyerRegister,
 });
 
@@ -22,7 +22,7 @@ function BuyerRegister() {
         <section>
           <p className="font-mono text-xs uppercase tracking-widest text-primary">Renter signup</p>
           <h1 className="mt-2 font-display text-3xl font-bold">Create your renter account</h1>
-          <p className="mt-1 text-sm text-muted-foreground">Takes 2 minutes. We'll verify your mobile to keep RentKart safe.</p>
+          <p className="mt-1 text-sm text-muted-foreground">Takes 2 minutes. We'll verify your mobile to keep The RentVerse safe.</p>
 
           <form className="mt-8 space-y-5">
             <div className="grid gap-4 sm:grid-cols-2">
@@ -46,7 +46,7 @@ function BuyerRegister() {
             </div>
             <label className="flex items-start gap-2 text-xs text-muted-foreground">
               <input type="checkbox" className="mt-0.5 h-4 w-4 rounded border-border text-primary" defaultChecked />
-              <span>I agree to RentKart's <a className="text-primary" href="#">Terms</a> and <a className="text-primary" href="#">Privacy Policy</a>. I understand that the refundable hold is reversed only after a successful return inspection.</span>
+              <span>I agree to The RentVerse's <a className="text-primary" href="#">Terms</a> and <a className="text-primary" href="#">Privacy Policy</a>. I understand that the refundable hold is reversed only after a successful return inspection.</span>
             </label>
             <Link to="/buyer" className="grid h-12 place-items-center rounded-lg bg-primary text-sm font-semibold text-primary-foreground hover:bg-primary-hover">
               Create account & start browsing
@@ -55,7 +55,7 @@ function BuyerRegister() {
         </section>
 
         <aside className="rounded-2xl border border-border bg-surface-alt/60 p-6 lg:sticky lg:top-6 lg:self-start">
-          <h3 className="font-display text-lg font-semibold">What you get on RentKart</h3>
+          <h3 className="font-display text-lg font-semibold">What you get on The RentVerse</h3>
           <ul className="mt-4 space-y-3 text-sm">
             {[
               "Refundable hold — never charged if you return on time",

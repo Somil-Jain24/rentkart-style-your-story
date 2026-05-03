@@ -10,7 +10,7 @@ import { listings, categories } from "@/data/mock";
 export const Route = createFileRoute("/buyer/")({
   head: () => ({
     meta: [
-      { title: "Discover rentals — RentKart" },
+      { title: "Discover rentals — The RentVerse" },
       { name: "description", content: "Wedding-season picks, trending lehengas and budget rentals from verified Indian sellers." },
     ],
   }),

@@ -4,7 +4,7 @@ import { SellerSidebar, SellerTopbar } from "@/components/rentkart/SellerChrome"
 import { SellerBottomNav } from "@/components/rentkart/BottomNav";
 
 export const Route = createFileRoute("/seller/account")({
-  head: () => ({ meta: [{ title: "Seller account — RentKart" }] }),
+  head: () => ({ meta: [{ title: "Seller account — The RentVerse" }] }),
   component: Account,
 });
 
@@ -70,7 +70,7 @@ function Account() {
           <section className="rounded-2xl border border-primary/30 bg-saffron-soft p-5">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
-                <div className="flex items-center gap-1.5"><Crown className="h-4 w-4 text-primary" /><h3 className="font-display text-base font-semibold">RentKart Pro · Free until Dec 2025</h3></div>
+                <div className="flex items-center gap-1.5"><Crown className="h-4 w-4 text-primary" /><h3 className="font-display text-base font-semibold">The RentVerse Pro · Free until Dec 2025</h3></div>
                 <p className="mt-1 text-sm text-muted-foreground">Lower commission (8%), priority listing review and dedicated account manager.</p>
               </div>
               <button className="h-10 rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground hover:bg-primary-hover">Manage plan</button>
@@ -83,7 +83,7 @@ function Account() {
               <ShieldCheck className="mt-0.5 h-5 w-5 text-success" />
               <div>
                 <h3 className="font-semibold">Damage protection enabled</h3>
-                <p className="mt-1 text-sm text-muted-foreground">RentKart holds 100% of declared item value as refundable hold from every renter. Claims paid within 7 working days of approved evidence.</p>
+                <p className="mt-1 text-sm text-muted-foreground">The RentVerse holds 100% of declared item value as refundable hold from every renter. Claims paid within 7 working days of approved evidence.</p>
               </div>
             </div>
           </section>

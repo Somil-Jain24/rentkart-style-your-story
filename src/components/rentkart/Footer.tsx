@@ -14,7 +14,7 @@ export function Footer() {
             </p>
             <div className="mt-4 flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-xs text-muted-foreground">
               <ShieldCheck className="h-4 w-4 text-success" />
-              All payments protected by RentKart Refundable Hold™
+              All payments protected by The RentVerse Refundable Hold™
             </div>
             <div className="mt-4 flex items-center gap-3">
               <a aria-label="Instagram" href="#" className="grid h-9 w-9 place-items-center rounded-md border border-border bg-card hover:bg-surface-alt"><Instagram className="h-4 w-4" /></a>
@@ -54,7 +54,7 @@ export function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
-          <p>© 2025 RentKart Technologies Pvt Ltd · CIN U72900MH2024PTC123456 · GSTIN 27AABCR1234C1Z5</p>
+          <p>© 2025 The RentVerse Technologies Pvt Ltd · CIN U72900MH2024PTC123456 · GSTIN 27AABCR1234C1Z5</p>
           <div className="flex gap-4">
             <a href="#" className="hover:text-foreground">Terms</a>
             <a href="#" className="hover:text-foreground">Privacy</a>

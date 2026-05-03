@@ -16,7 +16,7 @@ function NotFoundComponent() {
             to="/"
             className="inline-flex h-11 items-center justify-center rounded-lg bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-hover"
           >
-            Back to RentKart
+            Back to The RentVerse
           </Link>
         </div>
       </div>
@@ -30,14 +30,14 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=5" },
       { name: "theme-color", content: "#FF6B1A" },
-      { title: "RentKart — India's Premier Rental Marketplace" },
+      { title: "The RentVerse — India's Premier Rental Marketplace" },
       {
         name: "description",
         content:
           "Rent premium fashion, lehengas, sherwanis, accessories and more from verified Indian sellers. Refundable hold, transparent pricing, doorstep delivery.",
       },
-      { name: "author", content: "RentKart" },
-      { property: "og:title", content: "RentKart — India's Premier Rental Marketplace" },
+      { name: "author", content: "The RentVerse" },
+      { property: "og:title", content: "The RentVerse — India's Premier Rental Marketplace" },
       {
         property: "og:description",
         content: "Premium fashion rentals across India with refundable hold and verified sellers.",

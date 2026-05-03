@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, Sparkles, Truck, Wallet, ArrowRight, Star } from "lucide-react";
 import { Logo } from "@/components/rentkart/Logo";
+import { ThemeToggle } from "@/components/rentkart/ThemeToggle";
 import { Footer } from "@/components/rentkart/Footer";
 import { ProductImage } from "@/components/rentkart/ProductImage";
 import { listings } from "@/data/mock";
@@ -8,7 +9,7 @@ import { listings } from "@/data/mock";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "RentKart — Rent designer fashion across India" },
+      { title: "The RentVerse — Rent designer fashion across India" },
       { name: "description", content: "Rent lehengas, sherwanis, sarees and accessories from verified Indian sellers. Refundable hold, doorstep delivery, transparent pricing." },
     ],
   }),
@@ -30,12 +31,15 @@ function Landing() {
             <Link to="/help" className="hover:text-foreground">Help</Link>
             <Link to="/login" className="hover:text-foreground">Sign in</Link>
           </nav>
-          <Link
-            to="/role"
-            className="inline-flex h-10 items-center gap-1.5 rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-hover"
-          >
-            Get started <ArrowRight className="h-4 w-4" />
-          </Link>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <Link
+              to="/role"
+              className="inline-flex h-10 items-center gap-1.5 rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-hover"
+            >
+              Get started <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -95,7 +99,7 @@ function Landing() {
             <div className="grid grid-cols-2 gap-4">
               {featured.map((l, i) => (
                 <div key={l.id} className={i % 2 === 0 ? "translate-y-6" : ""}>
-                  <ProductImage hue={l.imageHue} variant="hero" />
+                  <ProductImage hue={l.imageHue} src={l.imageSrc} variant="hero" label={l.title} />
                   <p className="mt-2 px-1 text-xs font-medium text-foreground line-clamp-1">{l.title}</p>
                   <p className="px-1 font-mono text-xs text-muted-foreground">₹{l.dailyRate.toLocaleString("en-IN")}/day</p>
                 </div>
@@ -137,7 +141,7 @@ function Landing() {
       {/* How it works */}
       <section id="how" className="mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-24">
         <div className="mb-10 max-w-2xl">
-          <p className="font-mono text-xs uppercase tracking-widest text-primary">How RentKart works</p>
+          <p className="font-mono text-xs uppercase tracking-widest text-primary">How The RentVerse works</p>
           <h2 className="mt-2 font-display text-3xl font-bold sm:text-4xl">Designer wear in three simple steps</h2>
         </div>
         <ol className="grid gap-6 lg:grid-cols-3">

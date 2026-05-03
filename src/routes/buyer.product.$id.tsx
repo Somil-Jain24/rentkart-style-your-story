@@ -8,8 +8,8 @@ import { listings, reviews } from "@/data/mock";
 export const Route = createFileRoute("/buyer/product/$id")({
   head: ({ params }) => ({
     meta: [
-      { title: `Rent — RentKart · ${params.id}` },
-      { name: "description", content: "Designer rental from a verified RentKart seller." },
+      { title: `Rent — The RentVerse · ${params.id}` },
+      { name: "description", content: "Designer rental from a verified The RentVerse seller." },
     ],
   }),
   component: PDP,
@@ -39,7 +39,7 @@ function PDP() {
         {/* Gallery */}
         <section>
           <div className="relative">
-            <ProductImage hue={listing.imageHue} variant="hero" label={listing.title} />
+            <ProductImage hue={listing.imageHue} src={listing.imageSrc} variant="hero" label={listing.title} />
             <button aria-label="Previous" className="absolute left-3 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-card/95 shadow-soft hover:bg-card">
               <ChevronLeft className="h-5 w-5" />
             </button>
@@ -88,7 +88,7 @@ function PDP() {
             <div className="mt-4 grid grid-cols-3 gap-3 border-t border-dashed border-border pt-4 text-center text-xs">
               <div><p className="font-display text-lg font-bold">4.9 ★</p><p className="text-muted-foreground">Avg rating</p></div>
               <div><p className="font-display text-lg font-bold">98%</p><p className="text-muted-foreground">On-time return</p></div>
-              <div><p className="font-display text-lg font-bold">2yr</p><p className="text-muted-foreground">On RentKart</p></div>
+              <div><p className="font-display text-lg font-bold">2yr</p><p className="text-muted-foreground">On The RentVerse</p></div>
             </div>
           </div>
 
