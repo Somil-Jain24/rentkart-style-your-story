@@ -90,7 +90,7 @@ function Landing() {
 
       {/* Hero */}
       <section className="bg-warm-gradient">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-20">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-12">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground shadow-soft">
               <Sparkles className="h-3.5 w-3.5 text-primary" />
