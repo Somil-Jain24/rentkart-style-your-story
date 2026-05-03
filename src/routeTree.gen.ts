@@ -27,6 +27,7 @@ import { Route as BuyerProfileRouteImport } from './routes/buyer.profile'
 import { Route as BuyerOrdersRouteImport } from './routes/buyer.orders'
 import { Route as BuyerNotificationsRouteImport } from './routes/buyer.notifications'
 import { Route as BuyerBrowseRouteImport } from './routes/buyer.browse'
+import { Route as AdminPayoutsRouteImport } from './routes/admin.payouts'
 import { Route as AdminListingsRouteImport } from './routes/admin.listings'
 import { Route as AdminKycRouteImport } from './routes/admin.kyc'
 import { Route as AdminDisputesRouteImport } from './routes/admin.disputes'
@@ -124,6 +125,11 @@ const BuyerBrowseRoute = BuyerBrowseRouteImport.update({
   path: '/buyer/browse',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminPayoutsRoute = AdminPayoutsRouteImport.update({
+  id: '/payouts',
+  path: '/payouts',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminListingsRoute = AdminListingsRouteImport.update({
   id: '/listings',
   path: '/listings',
@@ -165,6 +171,7 @@ export interface FileRoutesByFullPath {
   '/admin/disputes': typeof AdminDisputesRoute
   '/admin/kyc': typeof AdminKycRoute
   '/admin/listings': typeof AdminListingsRoute
+  '/admin/payouts': typeof AdminPayoutsRoute
   '/buyer/browse': typeof BuyerBrowseRoute
   '/buyer/notifications': typeof BuyerNotificationsRoute
   '/buyer/orders': typeof BuyerOrdersRoute
@@ -191,6 +198,7 @@ export interface FileRoutesByTo {
   '/admin/disputes': typeof AdminDisputesRoute
   '/admin/kyc': typeof AdminKycRoute
   '/admin/listings': typeof AdminListingsRoute
+  '/admin/payouts': typeof AdminPayoutsRoute
   '/buyer/browse': typeof BuyerBrowseRoute
   '/buyer/notifications': typeof BuyerNotificationsRoute
   '/buyer/orders': typeof BuyerOrdersRoute
@@ -218,6 +226,7 @@ export interface FileRoutesById {
   '/admin/disputes': typeof AdminDisputesRoute
   '/admin/kyc': typeof AdminKycRoute
   '/admin/listings': typeof AdminListingsRoute
+  '/admin/payouts': typeof AdminPayoutsRoute
   '/buyer/browse': typeof BuyerBrowseRoute
   '/buyer/notifications': typeof BuyerNotificationsRoute
   '/buyer/orders': typeof BuyerOrdersRoute
@@ -246,6 +255,7 @@ export interface FileRouteTypes {
     | '/admin/disputes'
     | '/admin/kyc'
     | '/admin/listings'
+    | '/admin/payouts'
     | '/buyer/browse'
     | '/buyer/notifications'
     | '/buyer/orders'
@@ -272,6 +282,7 @@ export interface FileRouteTypes {
     | '/admin/disputes'
     | '/admin/kyc'
     | '/admin/listings'
+    | '/admin/payouts'
     | '/buyer/browse'
     | '/buyer/notifications'
     | '/buyer/orders'
@@ -298,6 +309,7 @@ export interface FileRouteTypes {
     | '/admin/disputes'
     | '/admin/kyc'
     | '/admin/listings'
+    | '/admin/payouts'
     | '/buyer/browse'
     | '/buyer/notifications'
     | '/buyer/orders'
@@ -466,6 +478,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BuyerBrowseRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/payouts': {
+      id: '/admin/payouts'
+      path: '/payouts'
+      fullPath: '/admin/payouts'
+      preLoaderRoute: typeof AdminPayoutsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/listings': {
       id: '/admin/listings'
       path: '/listings'
@@ -515,12 +534,14 @@ interface AdminRouteChildren {
   AdminDisputesRoute: typeof AdminDisputesRoute
   AdminKycRoute: typeof AdminKycRoute
   AdminListingsRoute: typeof AdminListingsRoute
+  AdminPayoutsRoute: typeof AdminPayoutsRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
   AdminDisputesRoute: AdminDisputesRoute,
   AdminKycRoute: AdminKycRoute,
   AdminListingsRoute: AdminListingsRoute,
+  AdminPayoutsRoute: AdminPayoutsRoute,
 }
 
 const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
