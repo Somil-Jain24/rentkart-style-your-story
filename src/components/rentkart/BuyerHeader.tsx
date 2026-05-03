@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Search, Heart, ShoppingBag, Bell, MapPin, Menu } from "lucide-react";
 import { Logo } from "./Logo";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function BuyerHeader() {
   return (
