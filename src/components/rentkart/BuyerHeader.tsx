@@ -47,6 +47,7 @@ export function BuyerHeader() {
           <button aria-label="Wishlist" className="hidden h-10 w-10 place-items-center rounded-lg hover:bg-surface-alt md:grid">
             <Heart className="h-5 w-5" />
           </button>
+          <ThemeToggle />
           <button aria-label="Notifications" className="relative grid h-10 w-10 place-items-center rounded-lg hover:bg-surface-alt">
             <Bell className="h-5 w-5" />
             <span className="absolute right-2 top-2 h-2 w-2 rounded-full bg-primary" />
