@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShoppingBag, Store, ArrowRight, Check } from "lucide-react";
 import { Logo } from "@/components/rentkart/Logo";
+import { ThemeToggle } from "@/components/rentkart/ThemeToggle";
 
 export const Route = createFileRoute("/role")({
   head: () => ({
