@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ShoppingBag, Store } from "lucide-react";
 import { Logo } from "@/components/rentkart/Logo";
+import { ThemeToggle } from "@/components/rentkart/ThemeToggle";
 
 export const Route = createFileRoute("/login")({
   head: () => ({ meta: [{ title: "Sign in — The RentVerse" }] }),
