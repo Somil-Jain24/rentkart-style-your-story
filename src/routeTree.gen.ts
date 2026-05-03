@@ -27,10 +27,14 @@ import { Route as BuyerProfileRouteImport } from './routes/buyer.profile'
 import { Route as BuyerOrdersRouteImport } from './routes/buyer.orders'
 import { Route as BuyerNotificationsRouteImport } from './routes/buyer.notifications'
 import { Route as BuyerBrowseRouteImport } from './routes/buyer.browse'
+import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
+import { Route as AdminSellersRouteImport } from './routes/admin.sellers'
 import { Route as AdminPayoutsRouteImport } from './routes/admin.payouts'
 import { Route as AdminListingsRouteImport } from './routes/admin.listings'
 import { Route as AdminKycRouteImport } from './routes/admin.kyc'
 import { Route as AdminDisputesRouteImport } from './routes/admin.disputes'
+import { Route as AdminAuditLogsRouteImport } from './routes/admin.audit-logs'
+import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
 import { Route as SellerListingsNewRouteImport } from './routes/seller.listings.new'
 import { Route as BuyerProductIdRouteImport } from './routes/buyer.product.$id'
 import { Route as BuyerCheckoutIdRouteImport } from './routes/buyer.checkout.$id'
@@ -125,6 +129,16 @@ const BuyerBrowseRoute = BuyerBrowseRouteImport.update({
   path: '/buyer/browse',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSellersRoute = AdminSellersRouteImport.update({
+  id: '/sellers',
+  path: '/sellers',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminPayoutsRoute = AdminPayoutsRouteImport.update({
   id: '/payouts',
   path: '/payouts',
@@ -143,6 +157,16 @@ const AdminKycRoute = AdminKycRouteImport.update({
 const AdminDisputesRoute = AdminDisputesRouteImport.update({
   id: '/disputes',
   path: '/disputes',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAuditLogsRoute = AdminAuditLogsRouteImport.update({
+  id: '/audit-logs',
+  path: '/audit-logs',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
   getParentRoute: () => AdminRoute,
 } as any)
 const SellerListingsNewRoute = SellerListingsNewRouteImport.update({
@@ -168,10 +192,14 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/role': typeof RoleRoute
   '/zoom-parallax-demo': typeof ZoomParallaxDemoRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/audit-logs': typeof AdminAuditLogsRoute
   '/admin/disputes': typeof AdminDisputesRoute
   '/admin/kyc': typeof AdminKycRoute
   '/admin/listings': typeof AdminListingsRoute
   '/admin/payouts': typeof AdminPayoutsRoute
+  '/admin/sellers': typeof AdminSellersRoute
+  '/admin/settings': typeof AdminSettingsRoute
   '/buyer/browse': typeof BuyerBrowseRoute
   '/buyer/notifications': typeof BuyerNotificationsRoute
   '/buyer/orders': typeof BuyerOrdersRoute
@@ -195,10 +223,14 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/role': typeof RoleRoute
   '/zoom-parallax-demo': typeof ZoomParallaxDemoRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/audit-logs': typeof AdminAuditLogsRoute
   '/admin/disputes': typeof AdminDisputesRoute
   '/admin/kyc': typeof AdminKycRoute
   '/admin/listings': typeof AdminListingsRoute
   '/admin/payouts': typeof AdminPayoutsRoute
+  '/admin/sellers': typeof AdminSellersRoute
+  '/admin/settings': typeof AdminSettingsRoute
   '/buyer/browse': typeof BuyerBrowseRoute
   '/buyer/notifications': typeof BuyerNotificationsRoute
   '/buyer/orders': typeof BuyerOrdersRoute
@@ -223,10 +255,14 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/role': typeof RoleRoute
   '/zoom-parallax-demo': typeof ZoomParallaxDemoRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/audit-logs': typeof AdminAuditLogsRoute
   '/admin/disputes': typeof AdminDisputesRoute
   '/admin/kyc': typeof AdminKycRoute
   '/admin/listings': typeof AdminListingsRoute
   '/admin/payouts': typeof AdminPayoutsRoute
+  '/admin/sellers': typeof AdminSellersRoute
+  '/admin/settings': typeof AdminSettingsRoute
   '/buyer/browse': typeof BuyerBrowseRoute
   '/buyer/notifications': typeof BuyerNotificationsRoute
   '/buyer/orders': typeof BuyerOrdersRoute
@@ -252,10 +288,14 @@ export interface FileRouteTypes {
     | '/login'
     | '/role'
     | '/zoom-parallax-demo'
+    | '/admin/analytics'
+    | '/admin/audit-logs'
     | '/admin/disputes'
     | '/admin/kyc'
     | '/admin/listings'
     | '/admin/payouts'
+    | '/admin/sellers'
+    | '/admin/settings'
     | '/buyer/browse'
     | '/buyer/notifications'
     | '/buyer/orders'
@@ -279,10 +319,14 @@ export interface FileRouteTypes {
     | '/login'
     | '/role'
     | '/zoom-parallax-demo'
+    | '/admin/analytics'
+    | '/admin/audit-logs'
     | '/admin/disputes'
     | '/admin/kyc'
     | '/admin/listings'
     | '/admin/payouts'
+    | '/admin/sellers'
+    | '/admin/settings'
     | '/buyer/browse'
     | '/buyer/notifications'
     | '/buyer/orders'
@@ -306,10 +350,14 @@ export interface FileRouteTypes {
     | '/login'
     | '/role'
     | '/zoom-parallax-demo'
+    | '/admin/analytics'
+    | '/admin/audit-logs'
     | '/admin/disputes'
     | '/admin/kyc'
     | '/admin/listings'
     | '/admin/payouts'
+    | '/admin/sellers'
+    | '/admin/settings'
     | '/buyer/browse'
     | '/buyer/notifications'
     | '/buyer/orders'
@@ -478,6 +526,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BuyerBrowseRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/sellers': {
+      id: '/admin/sellers'
+      path: '/sellers'
+      fullPath: '/admin/sellers'
+      preLoaderRoute: typeof AdminSellersRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/payouts': {
       id: '/admin/payouts'
       path: '/payouts'
@@ -506,6 +568,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminDisputesRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/audit-logs': {
+      id: '/admin/audit-logs'
+      path: '/audit-logs'
+      fullPath: '/admin/audit-logs'
+      preLoaderRoute: typeof AdminAuditLogsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/analytics': {
+      id: '/admin/analytics'
+      path: '/analytics'
+      fullPath: '/admin/analytics'
+      preLoaderRoute: typeof AdminAnalyticsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/seller/listings/new': {
       id: '/seller/listings/new'
       path: '/new'
@@ -531,17 +607,25 @@ declare module '@tanstack/react-router' {
 }
 
 interface AdminRouteChildren {
+  AdminAnalyticsRoute: typeof AdminAnalyticsRoute
+  AdminAuditLogsRoute: typeof AdminAuditLogsRoute
   AdminDisputesRoute: typeof AdminDisputesRoute
   AdminKycRoute: typeof AdminKycRoute
   AdminListingsRoute: typeof AdminListingsRoute
   AdminPayoutsRoute: typeof AdminPayoutsRoute
+  AdminSellersRoute: typeof AdminSellersRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminAnalyticsRoute: AdminAnalyticsRoute,
+  AdminAuditLogsRoute: AdminAuditLogsRoute,
   AdminDisputesRoute: AdminDisputesRoute,
   AdminKycRoute: AdminKycRoute,
   AdminListingsRoute: AdminListingsRoute,
   AdminPayoutsRoute: AdminPayoutsRoute,
+  AdminSellersRoute: AdminSellersRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
 }
 
 const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)

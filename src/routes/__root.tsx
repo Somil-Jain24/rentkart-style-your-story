@@ -1,7 +1,5 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
-import appCss from "../styles.css?url";
-
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -52,7 +50,7 @@ export const Route = createRootRoute({
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b7dcb433-40ea-406b-af16-9eb9f7fb899a/id-preview-b8bd195a--d4e3da9f-6483-4f08-8338-b570a9b26e7d.lovable.app-1777805301726.png" },
     ],
     links: [
-      { rel: "stylesheet", href: appCss },
+      { rel: "stylesheet", href: "/src/styles.css" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
