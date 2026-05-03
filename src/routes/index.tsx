@@ -145,21 +145,8 @@ function Landing() {
               {featured.map((l, i) => (
                 <div key={l.id} className={i % 2 === 0 ? "translate-y-6" : ""}>
                   <ProductImage hue={l.imageHue} src={l.imageSrc} variant="hero" label={l.title} />
-                  <p className="mt-2 px-1 text-xs font-medium text-foreground line-clamp-1">{l.title}</p>
-                  <p className="px-1 font-mono text-xs text-muted-foreground">₹{l.dailyRate.toLocaleString("en-IN")}/day</p>
                 </div>
               ))}
-            </div>
-            <div className="absolute -bottom-4 left-4 hidden rounded-xl border border-border bg-card p-4 shadow-card sm:block">
-              <div className="flex items-center gap-3">
-                <div className="grid h-10 w-10 place-items-center rounded-full bg-success-soft">
-                  <ShieldCheck className="h-5 w-5 text-success" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold">Refundable hold protected</p>
-                  <p className="text-xs text-muted-foreground">Refunded in 48h after return</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
