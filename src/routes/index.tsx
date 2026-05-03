@@ -20,7 +20,9 @@ export const Route = createFileRoute("/")({
 });
 
 function Landing() {
-  const featured = listings.slice(0, 4);
+  const [featured, setFeatured] = React.useState(listings.slice(0, 4));
+  const [parallaxOffset, setParallaxOffset] = React.useState({ x: 0, y: 0 });
+  const cardGridRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     const lenis = new Lenis();
@@ -31,6 +33,41 @@ function Landing() {
     }
 
     requestAnimationFrame(raf);
+  }, []);
+
+  // Card shuffle animation every 6 seconds
+  React.useEffect(() => {
+    const shuffleInterval = setInterval(() => {
+      const randomCards = listings.sort(() => Math.random() - 0.5).slice(0, 4);
+      setFeatured(randomCards);
+    }, 6000);
+
+    return () => clearInterval(shuffleInterval);
+  }, []);
+
+  // Mouse parallax effect for card grid
+  React.useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!cardGridRef.current) return;
+
+      const rect = cardGridRef.current.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      const distX = (e.clientX - centerX) / rect.width;
+      const distY = (e.clientY - centerY) / rect.height;
+
+      setParallaxOffset({
+        x: distX * 12,
+        y: distY * 12
+      });
+    };
+
+    // Only enable parallax on desktop
+    if (window.innerWidth >= 1024) {
+      window.addEventListener('mousemove', handleMouseMove);
+      return () => window.removeEventListener('mousemove', handleMouseMove);
+    }
   }, []);
 
   const parallaxImages = [
@@ -89,40 +126,52 @@ function Landing() {
       </header>
 
       {/* Hero */}
-      <section className="bg-warm-gradient">
+      <section className="relative overflow-hidden bg-warm-gradient">
+        {/* Animated background blobs */}
+        <div className="absolute inset-0 -z-10 overflow-hidden">
+          <div className="absolute -top-1/2 -right-1/4 h-96 w-96 rounded-full bg-primary/5 blur-3xl" style={{ animation: 'float 8s ease-in-out infinite' }}></div>
+          <div className="absolute -bottom-1/2 -left-1/4 h-96 w-96 rounded-full bg-primary/5 blur-3xl" style={{ animation: 'floatAlt 10s ease-in-out infinite' }}></div>
+        </div>
+
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-3 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-6">
-          <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground shadow-soft">
+          {/* Left Content */}
+          <div className="animate-breathe">
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground shadow-soft animate-fade-in-up" style={{ animationDelay: '0s' }}>
               <Sparkles className="h-3.5 w-3.5 text-primary" />
               Trusted by 1.2 lakh+ Indians for events, work, travel & more
             </span>
 
             <h1 className="mt-2 font-display text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl text-balance">
-              Rent anything.<br />
-              <span className="text-primary">Buy nothing.</span>
+              <span className="inline-block animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+                Rent anything.
+              </span>
+              <br />
+              <span className="inline-block text-primary animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                Buy nothing.
+              </span>
             </h1>
 
-            <p className="mt-3 max-w-lg text-lg text-muted-foreground text-pretty">
+            <p className="mt-3 max-w-lg text-lg text-muted-foreground text-pretty animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
               Lehengas, MacBooks, drones, drills, scooters, sofas — rent premium items from verified sellers across 24 Indian cities. Your hold is fully refundable, escrow-protected and back in 48 hours.
             </p>
 
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
               <Link
                 to="/role"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-soft transition-colors hover:bg-primary-hover"
+                className="group inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-soft transition-all duration-300 hover:bg-primary-hover hover:scale-105 active:scale-95"
               >
                 Start renting
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/role"
-                className="inline-flex h-12 items-center justify-center rounded-lg border border-border bg-card px-6 text-sm font-semibold text-foreground hover:bg-surface-alt"
+                className="group relative inline-flex h-12 items-center justify-center rounded-lg border border-border bg-card px-6 text-sm font-semibold text-foreground transition-all duration-300 hover:bg-surface-alt hover:border-primary"
               >
                 List your inventory
               </Link>
             </div>
 
-            <dl className="mt-10 grid grid-cols-3 gap-6 border-t border-border pt-6">
+            <dl className="mt-10 grid grid-cols-3 gap-6 border-t border-border pt-6 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
               <div>
                 <dt className="text-xs uppercase tracking-wider text-muted-foreground">Listings</dt>
                 <dd className="mt-1 font-display text-2xl font-bold">8,400+</dd>
@@ -140,13 +189,49 @@ function Landing() {
             </dl>
           </div>
 
-          <div className="relative">
+          {/* Right Product Cards */}
+          <div
+            ref={cardGridRef}
+            className="relative"
+            style={{
+              transform: `translate(${parallaxOffset.x}px, ${parallaxOffset.y}px)`,
+              transition: 'transform 0.1s ease-out'
+            }}
+          >
             <div className="grid grid-cols-2 gap-4">
               {featured.map((l, i) => (
-                <div key={l.id} className={i % 2 === 0 ? "translate-y-6" : ""}>
-                  <ProductImage hue={l.imageHue} src={l.imageSrc} variant="hero" label={l.title} />
+                <div
+                  key={`${l.id}-${Math.random()}`}
+                  className="group relative animate-slide-in-up hover:z-10"
+                  style={{
+                    animationDelay: `${0.6 + i * 0.1}s`,
+                  }}
+                >
+                  <div className="relative overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-pop">
+                    <ProductImage hue={l.imageHue} src={l.imageSrc} variant="hero" label={l.title} />
+                    <div className="absolute inset-0 rounded-2xl transition-all duration-300 group-hover:bg-black/10"></div>
+                  </div>
+
+                  {/* Floating animation for cards */}
+                  <style>{`
+                    @keyframes floatCard${i} {
+                      0%, 100% { transform: translateY(0px); }
+                      50% { transform: translateY(-8px); }
+                    }
+                  `}</style>
                 </div>
               ))}
+            </div>
+
+            {/* Protected badge - slides in from bottom */}
+            <div className="absolute -bottom-4 left-4 hidden rounded-xl border border-border bg-card p-4 shadow-card sm:flex items-center gap-3 animate-slide-in-up" style={{ animationDelay: '1s' }}>
+              <div className="grid h-10 w-10 place-items-center rounded-full bg-success-soft">
+                <ShieldCheck className="h-5 w-5 text-success" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold">Refundable hold protected</p>
+                <p className="text-xs text-muted-foreground">Refunded in 48h after return</p>
+              </div>
             </div>
           </div>
         </div>
