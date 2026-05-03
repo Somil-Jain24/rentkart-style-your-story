@@ -9,8 +9,8 @@ import { listings } from "@/data/mock";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "The RentVerse — Rent designer fashion across India" },
-      { name: "description", content: "Rent lehengas, sherwanis, sarees and accessories from verified Indian sellers. Refundable hold, doorstep delivery, transparent pricing." },
+      { title: "The RentVerse — Rent anything across India" },
+      { name: "description", content: "India's premier rental marketplace — fashion, electronics, tools, cameras, vehicles, furniture and more. Verified sellers, escrow-protected refundable hold, doorstep delivery." },
     ],
   }),
   component: Landing,
@@ -49,16 +49,16 @@ function Landing() {
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground shadow-soft">
               <Sparkles className="h-3.5 w-3.5 text-primary" />
-              Trusted by 1.2 lakh+ Indians for weddings & events
+              Trusted by 1.2 lakh+ Indians for events, work, travel & more
             </span>
 
             <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl text-balance">
-              Wear designer.<br />
-              <span className="text-primary">Pay rental.</span>
+              Rent anything.<br />
+              <span className="text-primary">Buy nothing.</span>
             </h1>
 
             <p className="mt-5 max-w-lg text-lg text-muted-foreground text-pretty">
-              Rent premium lehengas, sherwanis, sarees and accessories from verified sellers across 24 Indian cities. Your hold is fully refundable when you return on time.
+              Lehengas, MacBooks, drones, drills, scooters, sofas — rent premium items from verified sellers across 24 Indian cities. Your hold is fully refundable, escrow-protected and back in 48 hours.
             </p>
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -73,7 +73,7 @@ function Landing() {
                 to="/role"
                 className="inline-flex h-12 items-center justify-center rounded-lg border border-border bg-card px-6 text-sm font-semibold text-foreground hover:bg-surface-alt"
               >
-                List your wardrobe
+                List your inventory
               </Link>
             </div>
 
