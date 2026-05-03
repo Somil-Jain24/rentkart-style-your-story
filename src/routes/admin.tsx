@@ -3,7 +3,7 @@ import { ShieldCheck, FileCheck, AlertTriangle, Wallet, Users, Boxes } from "luc
 import { Logo } from "@/components/rentkart/Logo";
 
 export const Route = createFileRoute("/admin")({
-  head: () => ({ meta: [{ title: "Admin operations — RentKart" }] }),
+  head: () => ({ meta: [{ title: "Admin operations — The RentVerse" }] }),
   component: Admin,
 });
 
@@ -26,7 +26,7 @@ function Admin() {
       <main className="mx-auto max-w-7xl px-4 py-8 lg:px-8">
         <div>
           <p className="font-mono text-xs uppercase tracking-widest text-primary">Internal use only</p>
-          <h1 className="mt-1 font-display text-3xl font-bold">RentKart Operations Overview</h1>
+          <h1 className="mt-1 font-display text-3xl font-bold">The RentVerse Operations Overview</h1>
           <p className="mt-1 text-sm text-muted-foreground">Compact admin module: listing approvals, KYC review, disputes, payouts and override actions.</p>
         </div>
 

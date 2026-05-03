@@ -4,7 +4,7 @@ import { BuyerHeader } from "@/components/rentkart/BuyerHeader";
 import { BuyerBottomNav } from "@/components/rentkart/BottomNav";
 
 export const Route = createFileRoute("/buyer/notifications")({
-  head: () => ({ meta: [{ title: "Notifications — RentKart" }] }),
+  head: () => ({ meta: [{ title: "Notifications — The RentVerse" }] }),
   component: Notifs,
 });
 

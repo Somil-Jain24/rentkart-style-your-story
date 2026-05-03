@@ -4,12 +4,12 @@ import { Logo } from "@/components/rentkart/Logo";
 import { Footer } from "@/components/rentkart/Footer";
 
 export const Route = createFileRoute("/help")({
-  head: () => ({ meta: [{ title: "Trust, safety & FAQ — RentKart" }] }),
+  head: () => ({ meta: [{ title: "Trust, safety & FAQ — The RentVerse" }] }),
   component: Help,
 });
 
 const faqs = [
-  { q: "What is the Refundable Hold?", a: "When you book a rental, RentKart places a hold equal to the item's declared value (e.g. ₹24,500). It is NOT a charge — it is reserved on your payment method and released back to your source account within 48 hours of a successful return inspection." },
+  { q: "What is the Refundable Hold?", a: "When you book a rental, The RentVerse places a hold equal to the item's declared value (e.g. ₹24,500). It is NOT a charge — it is reserved on your payment method and released back to your source account within 48 hours of a successful return inspection." },
   { q: "What happens if I return the item late?", a: "Day 20 we send a friendly reminder. Day 23 a stronger nudge. Day 24 a final warning. From Day 26, a daily late fee of 5% of the rental fee is deducted from your hold. Beyond Day 30 the item is treated as non-returned and the full hold is forfeited." },
   { q: "What if the item arrives damaged or wrong?", a: "Open a dispute within 24 hours of delivery with photos. We pause the rental clock instantly and assign an Ops Manager. If verified, you get a full refund including hold and rental fee." },
   { q: "How do I know sellers are genuine?", a: "Every seller is KYC-verified (PAN + Aadhaar + bank). Stores must complete 3 successful rentals before earning the Verified Badge. Look for the blue tick on listings." },
@@ -36,7 +36,7 @@ function Help() {
       <main className="mx-auto max-w-5xl px-4 py-10 lg:px-8 lg:py-16">
         <div className="text-center">
           <p className="font-mono text-xs uppercase tracking-widest text-primary">Help & trust</p>
-          <h1 className="mt-2 font-display text-4xl font-bold sm:text-5xl">Renting on RentKart, explained</h1>
+          <h1 className="mt-2 font-display text-4xl font-bold sm:text-5xl">Renting on The RentVerse, explained</h1>
           <p className="mx-auto mt-3 max-w-2xl text-base text-muted-foreground">
             Transparent answers about the refundable hold, returns, disputes and seller payouts.
           </p>

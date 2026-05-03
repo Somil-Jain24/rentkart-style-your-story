@@ -5,7 +5,7 @@ import { ProductImage } from "@/components/rentkart/ProductImage";
 import { listings } from "@/data/mock";
 
 export const Route = createFileRoute("/buyer/checkout/$id")({
-  head: () => ({ meta: [{ title: "Checkout — RentKart" }] }),
+  head: () => ({ meta: [{ title: "Checkout — The RentVerse" }] }),
   component: Checkout,
 });
 
@@ -162,7 +162,7 @@ function Checkout() {
               </button>
               <p className="mt-2 text-center text-[11px] text-muted-foreground">
                 <Check className="mr-1 inline h-3 w-3 text-success" />
-                Secured by RentKart Pay · 256-bit encryption
+                Secured by The RentVerse Pay · 256-bit encryption
               </p>
             </div>
           </aside>

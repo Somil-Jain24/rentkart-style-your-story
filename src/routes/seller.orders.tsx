@@ -6,7 +6,7 @@ import { ProductImage } from "@/components/rentkart/ProductImage";
 import { sellerOrders } from "@/data/mock";
 
 export const Route = createFileRoute("/seller/orders")({
-  head: () => ({ meta: [{ title: "Orders — RentKart Seller" }] }),
+  head: () => ({ meta: [{ title: "Orders — The RentVerse Seller" }] }),
   component: SellerOrders,
 });
 

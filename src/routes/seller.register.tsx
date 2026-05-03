@@ -3,7 +3,7 @@ import { ArrowLeft, ShieldCheck, TrendingUp, Wallet } from "lucide-react";
 import { Logo } from "@/components/rentkart/Logo";
 
 export const Route = createFileRoute("/seller/register")({
-  head: () => ({ meta: [{ title: "Become a seller — RentKart" }] }),
+  head: () => ({ meta: [{ title: "Become a seller — The RentVerse" }] }),
   component: SellerRegister,
 });
 
@@ -30,7 +30,7 @@ function SellerRegister() {
         <section>
           <p className="font-mono text-xs uppercase tracking-widest text-primary">Seller onboarding · Step 1 of 5</p>
           <h1 className="mt-2 font-display text-3xl font-bold">Start earning from your wardrobe</h1>
-          <p className="mt-1 text-sm text-muted-foreground">Top RentKart sellers earn ₹15k–₹80k per month. Average payout in 24 hours after return.</p>
+          <p className="mt-1 text-sm text-muted-foreground">Top The RentVerse sellers earn ₹15k–₹80k per month. Average payout in 24 hours after return.</p>
 
           <ol className="mt-6 grid grid-cols-5 gap-2">
             {steps.map((s) => (
@@ -80,7 +80,7 @@ function SellerRegister() {
           <Stat icon={TrendingUp} label="Listing-to-rental rate" value="68%" hint="for verified stores" />
           <div className="rounded-2xl border border-border bg-surface-alt/60 p-5">
             <ShieldCheck className="h-5 w-5 text-success" />
-            <h4 className="mt-2 font-semibold">RentKart Damage Protection</h4>
+            <h4 className="mt-2 font-semibold">The RentVerse Damage Protection</h4>
             <p className="mt-1 text-sm text-muted-foreground">If a renter damages your item, the refundable hold covers repair or replacement up to declared item value.</p>
           </div>
         </aside>

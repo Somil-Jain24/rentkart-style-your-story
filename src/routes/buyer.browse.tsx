@@ -6,7 +6,7 @@ import { ListingCard } from "@/components/rentkart/ListingCard";
 import { listings, cities, categories } from "@/data/mock";
 
 export const Route = createFileRoute("/buyer/browse")({
-  head: () => ({ meta: [{ title: "Browse rentals — RentKart" }] }),
+  head: () => ({ meta: [{ title: "Browse rentals — The RentVerse" }] }),
   component: Browse,
 });
 

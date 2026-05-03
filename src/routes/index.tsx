@@ -8,7 +8,7 @@ import { listings } from "@/data/mock";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "RentKart — Rent designer fashion across India" },
+      { title: "The RentVerse — Rent designer fashion across India" },
       { name: "description", content: "Rent lehengas, sherwanis, sarees and accessories from verified Indian sellers. Refundable hold, doorstep delivery, transparent pricing." },
     ],
   }),
@@ -137,7 +137,7 @@ function Landing() {
       {/* How it works */}
       <section id="how" className="mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-24">
         <div className="mb-10 max-w-2xl">
-          <p className="font-mono text-xs uppercase tracking-widest text-primary">How RentKart works</p>
+          <p className="font-mono text-xs uppercase tracking-widest text-primary">How The RentVerse works</p>
           <h2 className="mt-2 font-display text-3xl font-bold sm:text-4xl">Designer wear in three simple steps</h2>
         </div>
         <ol className="grid gap-6 lg:grid-cols-3">

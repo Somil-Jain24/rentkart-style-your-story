@@ -1,4 +1,4 @@
-// Mock data for RentKart marketplace
+// Mock data for The RentVerse marketplace
 // Realistic Indian fashion rental context
 
 export type Listing = {

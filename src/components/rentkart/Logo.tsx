@@ -9,7 +9,7 @@ export function Logo({ tone = "default" }: { tone?: "default" | "light" }) {
         </svg>
       </span>
       <span className={`font-display text-xl font-bold tracking-tight ${tone === "light" ? "text-primary-foreground" : "text-foreground"}`}>
-        Rent<span className="text-primary">Kart</span>
+        The Rent<span className="text-primary">Verse</span>
       </span>
     </span>
   );
