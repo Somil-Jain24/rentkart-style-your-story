@@ -46,6 +46,7 @@ export function SellerTopbar({ title, subtitle }: { title: string; subtitle?: st
         {subtitle && <p className="text-xs text-muted-foreground">{subtitle}</p>}
       </div>
       <div className="flex items-center gap-2">
+        <ThemeToggle />
         <Link to="/seller/listings/new" className="hidden h-10 items-center gap-1.5 rounded-lg bg-primary px-3.5 text-sm font-semibold text-primary-foreground hover:bg-primary-hover sm:inline-flex">
           + Add listing
         </Link>
