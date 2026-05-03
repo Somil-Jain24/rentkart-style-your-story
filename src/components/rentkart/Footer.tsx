@@ -10,7 +10,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Logo />
             <p className="mt-3 max-w-sm text-sm text-muted-foreground">
-              India's premier fashion rental marketplace. Wear premium designer pieces for a fraction of the price — verified sellers, refundable hold, doorstep delivery.
+              India's premier rental marketplace for fashion, electronics, tools, cameras, furniture and more — verified sellers, refundable hold, doorstep delivery.
             </p>
             <div className="mt-4 flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-xs text-muted-foreground">
               <ShieldCheck className="h-4 w-4 text-success" />
@@ -47,7 +47,7 @@ export function Footer() {
             <h4 className="text-sm font-semibold text-foreground">Reach us</h4>
             <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
               <li className="flex items-center gap-2"><Phone className="h-4 w-4" /> 1800-200-RENT</li>
-              <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> care@rentkart.in</li>
+              <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> care@rentverse.in</li>
               <li className="text-xs">Mon–Sat • 9am–9pm IST</li>
             </ul>
           </div>
