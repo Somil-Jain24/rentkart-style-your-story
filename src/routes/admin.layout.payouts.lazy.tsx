@@ -6,7 +6,7 @@ import { StatusBadge } from "@/components/admin/StatusBadge";
 import { Wallet, TrendingUp, AlertTriangle, Clock } from "lucide-react";
 import { useState } from "react";
 
-export const Route = createLazyFileRoute("/admin/payouts")({
+export const Route = createLazyFileRoute("/admin/layout/payouts")({
   component: PayoutsPage,
 });
 

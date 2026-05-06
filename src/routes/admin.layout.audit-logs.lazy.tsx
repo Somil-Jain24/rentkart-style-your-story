@@ -4,7 +4,7 @@ import { AdminPageHeader } from "@/components/admin/AdminPageHeader";
 import { StatusBadge } from "@/components/admin/StatusBadge";
 import { useState } from "react";
 
-export const Route = createLazyFileRoute("/admin/audit-logs")({
+export const Route = createLazyFileRoute("/admin/layout/audit-logs")({
   component: AuditLogsPage,
 });
 
