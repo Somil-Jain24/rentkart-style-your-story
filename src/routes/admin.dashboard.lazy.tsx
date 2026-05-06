@@ -5,7 +5,7 @@ import { StatsCard } from "@/components/admin/StatsCard";
 import { QuickActionsPanel } from "@/components/admin/QuickActionsPanel";
 import { ActivityFeed, ActivityItem } from "@/components/admin/ActivityFeed";
 
-export const Route = createLazyFileRoute("/admin/layout/dashboard")({
+export const Route = createLazyFileRoute("/admin/dashboard")({
   component: OperationsDashboard,
 });
 

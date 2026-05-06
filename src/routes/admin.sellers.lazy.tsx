@@ -3,7 +3,7 @@ import { Star, TrendingUp, Package, MessageSquare, CheckCircle } from "lucide-re
 import { AdminPageHeader } from "@/components/admin/AdminPageHeader";
 import { useState } from "react";
 
-export const Route = createLazyFileRoute("/admin/layout/sellers")({
+export const Route = createLazyFileRoute("/admin/sellers")({
   component: SellerManagementPage,
 });
 

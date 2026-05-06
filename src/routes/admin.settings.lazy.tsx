@@ -3,7 +3,7 @@ import { Save, X, RotateCcw, Lock, Bell, Sliders } from "lucide-react";
 import { AdminPageHeader } from "@/components/admin/AdminPageHeader";
 import { useState } from "react";
 
-export const Route = createLazyFileRoute("/admin/layout/settings")({
+export const Route = createLazyFileRoute("/admin/settings")({
   component: SettingsPage,
 });
 

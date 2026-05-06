@@ -27,20 +27,20 @@ import { Route as BuyerProfileRouteImport } from './routes/buyer.profile'
 import { Route as BuyerOrdersRouteImport } from './routes/buyer.orders'
 import { Route as BuyerNotificationsRouteImport } from './routes/buyer.notifications'
 import { Route as BuyerBrowseRouteImport } from './routes/buyer.browse'
+import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
+import { Route as AdminSellersRouteImport } from './routes/admin.sellers'
+import { Route as AdminPayoutsRouteImport } from './routes/admin.payouts'
+import { Route as AdminListingsRouteImport } from './routes/admin.listings'
 import { Route as AdminLayoutRouteImport } from './routes/admin.layout'
+import { Route as AdminKycRouteImport } from './routes/admin.kyc'
+import { Route as AdminHelpRouteImport } from './routes/admin.help'
+import { Route as AdminDisputesRouteImport } from './routes/admin.disputes'
+import { Route as AdminDashboardRouteImport } from './routes/admin.dashboard'
+import { Route as AdminAuditLogsRouteImport } from './routes/admin.audit-logs'
+import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
 import { Route as SellerListingsNewRouteImport } from './routes/seller.listings.new'
 import { Route as BuyerProductIdRouteImport } from './routes/buyer.product.$id'
 import { Route as BuyerCheckoutIdRouteImport } from './routes/buyer.checkout.$id'
-import { Route as AdminLayoutSettingsRouteImport } from './routes/admin.layout.settings'
-import { Route as AdminLayoutSellersRouteImport } from './routes/admin.layout.sellers'
-import { Route as AdminLayoutPayoutsRouteImport } from './routes/admin.layout.payouts'
-import { Route as AdminLayoutListingsRouteImport } from './routes/admin.layout.listings'
-import { Route as AdminLayoutKycRouteImport } from './routes/admin.layout.kyc'
-import { Route as AdminLayoutHelpRouteImport } from './routes/admin.layout.help'
-import { Route as AdminLayoutDisputesRouteImport } from './routes/admin.layout.disputes'
-import { Route as AdminLayoutDashboardRouteImport } from './routes/admin.layout.dashboard'
-import { Route as AdminLayoutAuditLogsRouteImport } from './routes/admin.layout.audit-logs'
-import { Route as AdminLayoutAnalyticsRouteImport } from './routes/admin.layout.analytics'
 
 const ZoomParallaxDemoRoute = ZoomParallaxDemoRouteImport.update({
   id: '/zoom-parallax-demo',
@@ -132,11 +132,73 @@ const BuyerBrowseRoute = BuyerBrowseRouteImport.update({
   path: '/buyer/browse',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/buyer.browse.lazy').then((d) => d.Route))
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminRoute,
+} as any).lazy(() =>
+  import('./routes/admin.settings.lazy').then((d) => d.Route),
+)
+const AdminSellersRoute = AdminSellersRouteImport.update({
+  id: '/sellers',
+  path: '/sellers',
+  getParentRoute: () => AdminRoute,
+} as any).lazy(() => import('./routes/admin.sellers.lazy').then((d) => d.Route))
+const AdminPayoutsRoute = AdminPayoutsRouteImport.update({
+  id: '/payouts',
+  path: '/payouts',
+  getParentRoute: () => AdminRoute,
+} as any).lazy(() => import('./routes/admin.payouts.lazy').then((d) => d.Route))
+const AdminListingsRoute = AdminListingsRouteImport.update({
+  id: '/listings',
+  path: '/listings',
+  getParentRoute: () => AdminRoute,
+} as any).lazy(() =>
+  import('./routes/admin.listings.lazy').then((d) => d.Route),
+)
 const AdminLayoutRoute = AdminLayoutRouteImport.update({
   id: '/layout',
   path: '/layout',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminKycRoute = AdminKycRouteImport.update({
+  id: '/kyc',
+  path: '/kyc',
+  getParentRoute: () => AdminRoute,
+} as any).lazy(() => import('./routes/admin.kyc.lazy').then((d) => d.Route))
+const AdminHelpRoute = AdminHelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => AdminRoute,
+} as any).lazy(() => import('./routes/admin.help.lazy').then((d) => d.Route))
+const AdminDisputesRoute = AdminDisputesRouteImport.update({
+  id: '/disputes',
+  path: '/disputes',
+  getParentRoute: () => AdminRoute,
+} as any).lazy(() =>
+  import('./routes/admin.disputes.lazy').then((d) => d.Route),
+)
+const AdminDashboardRoute = AdminDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AdminRoute,
+} as any).lazy(() =>
+  import('./routes/admin.dashboard.lazy').then((d) => d.Route),
+)
+const AdminAuditLogsRoute = AdminAuditLogsRouteImport.update({
+  id: '/audit-logs',
+  path: '/audit-logs',
+  getParentRoute: () => AdminRoute,
+} as any).lazy(() =>
+  import('./routes/admin.audit-logs.lazy').then((d) => d.Route),
+)
+const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => AdminRoute,
+} as any).lazy(() =>
+  import('./routes/admin.analytics.lazy').then((d) => d.Route),
+)
 const SellerListingsNewRoute = SellerListingsNewRouteImport.update({
   id: '/new',
   path: '/new',
@@ -158,76 +220,6 @@ const BuyerCheckoutIdRoute = BuyerCheckoutIdRouteImport.update({
 } as any).lazy(() =>
   import('./routes/buyer.checkout.$id.lazy').then((d) => d.Route),
 )
-const AdminLayoutSettingsRoute = AdminLayoutSettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
-  getParentRoute: () => AdminLayoutRoute,
-} as any).lazy(() =>
-  import('./routes/admin.layout.settings.lazy').then((d) => d.Route),
-)
-const AdminLayoutSellersRoute = AdminLayoutSellersRouteImport.update({
-  id: '/sellers',
-  path: '/sellers',
-  getParentRoute: () => AdminLayoutRoute,
-} as any).lazy(() =>
-  import('./routes/admin.layout.sellers.lazy').then((d) => d.Route),
-)
-const AdminLayoutPayoutsRoute = AdminLayoutPayoutsRouteImport.update({
-  id: '/payouts',
-  path: '/payouts',
-  getParentRoute: () => AdminLayoutRoute,
-} as any).lazy(() =>
-  import('./routes/admin.layout.payouts.lazy').then((d) => d.Route),
-)
-const AdminLayoutListingsRoute = AdminLayoutListingsRouteImport.update({
-  id: '/listings',
-  path: '/listings',
-  getParentRoute: () => AdminLayoutRoute,
-} as any).lazy(() =>
-  import('./routes/admin.layout.listings.lazy').then((d) => d.Route),
-)
-const AdminLayoutKycRoute = AdminLayoutKycRouteImport.update({
-  id: '/kyc',
-  path: '/kyc',
-  getParentRoute: () => AdminLayoutRoute,
-} as any).lazy(() =>
-  import('./routes/admin.layout.kyc.lazy').then((d) => d.Route),
-)
-const AdminLayoutHelpRoute = AdminLayoutHelpRouteImport.update({
-  id: '/help',
-  path: '/help',
-  getParentRoute: () => AdminLayoutRoute,
-} as any).lazy(() =>
-  import('./routes/admin.layout.help.lazy').then((d) => d.Route),
-)
-const AdminLayoutDisputesRoute = AdminLayoutDisputesRouteImport.update({
-  id: '/disputes',
-  path: '/disputes',
-  getParentRoute: () => AdminLayoutRoute,
-} as any).lazy(() =>
-  import('./routes/admin.layout.disputes.lazy').then((d) => d.Route),
-)
-const AdminLayoutDashboardRoute = AdminLayoutDashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => AdminLayoutRoute,
-} as any).lazy(() =>
-  import('./routes/admin.layout.dashboard.lazy').then((d) => d.Route),
-)
-const AdminLayoutAuditLogsRoute = AdminLayoutAuditLogsRouteImport.update({
-  id: '/audit-logs',
-  path: '/audit-logs',
-  getParentRoute: () => AdminLayoutRoute,
-} as any).lazy(() =>
-  import('./routes/admin.layout.audit-logs.lazy').then((d) => d.Route),
-)
-const AdminLayoutAnalyticsRoute = AdminLayoutAnalyticsRouteImport.update({
-  id: '/analytics',
-  path: '/analytics',
-  getParentRoute: () => AdminLayoutRoute,
-} as any).lazy(() =>
-  import('./routes/admin.layout.analytics.lazy').then((d) => d.Route),
-)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -236,7 +228,17 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/role': typeof RoleRoute
   '/zoom-parallax-demo': typeof ZoomParallaxDemoRoute
-  '/admin/layout': typeof AdminLayoutRouteWithChildren
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/audit-logs': typeof AdminAuditLogsRoute
+  '/admin/dashboard': typeof AdminDashboardRoute
+  '/admin/disputes': typeof AdminDisputesRoute
+  '/admin/help': typeof AdminHelpRoute
+  '/admin/kyc': typeof AdminKycRoute
+  '/admin/layout': typeof AdminLayoutRoute
+  '/admin/listings': typeof AdminListingsRoute
+  '/admin/payouts': typeof AdminPayoutsRoute
+  '/admin/sellers': typeof AdminSellersRoute
+  '/admin/settings': typeof AdminSettingsRoute
   '/buyer/browse': typeof BuyerBrowseRoute
   '/buyer/notifications': typeof BuyerNotificationsRoute
   '/buyer/orders': typeof BuyerOrdersRoute
@@ -249,16 +251,6 @@ export interface FileRoutesByFullPath {
   '/seller/register': typeof SellerRegisterRoute
   '/buyer/': typeof BuyerIndexRoute
   '/seller/': typeof SellerIndexRoute
-  '/admin/layout/analytics': typeof AdminLayoutAnalyticsRoute
-  '/admin/layout/audit-logs': typeof AdminLayoutAuditLogsRoute
-  '/admin/layout/dashboard': typeof AdminLayoutDashboardRoute
-  '/admin/layout/disputes': typeof AdminLayoutDisputesRoute
-  '/admin/layout/help': typeof AdminLayoutHelpRoute
-  '/admin/layout/kyc': typeof AdminLayoutKycRoute
-  '/admin/layout/listings': typeof AdminLayoutListingsRoute
-  '/admin/layout/payouts': typeof AdminLayoutPayoutsRoute
-  '/admin/layout/sellers': typeof AdminLayoutSellersRoute
-  '/admin/layout/settings': typeof AdminLayoutSettingsRoute
   '/buyer/checkout/$id': typeof BuyerCheckoutIdRoute
   '/buyer/product/$id': typeof BuyerProductIdRoute
   '/seller/listings/new': typeof SellerListingsNewRoute
@@ -270,7 +262,17 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/role': typeof RoleRoute
   '/zoom-parallax-demo': typeof ZoomParallaxDemoRoute
-  '/admin/layout': typeof AdminLayoutRouteWithChildren
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/audit-logs': typeof AdminAuditLogsRoute
+  '/admin/dashboard': typeof AdminDashboardRoute
+  '/admin/disputes': typeof AdminDisputesRoute
+  '/admin/help': typeof AdminHelpRoute
+  '/admin/kyc': typeof AdminKycRoute
+  '/admin/layout': typeof AdminLayoutRoute
+  '/admin/listings': typeof AdminListingsRoute
+  '/admin/payouts': typeof AdminPayoutsRoute
+  '/admin/sellers': typeof AdminSellersRoute
+  '/admin/settings': typeof AdminSettingsRoute
   '/buyer/browse': typeof BuyerBrowseRoute
   '/buyer/notifications': typeof BuyerNotificationsRoute
   '/buyer/orders': typeof BuyerOrdersRoute
@@ -283,16 +285,6 @@ export interface FileRoutesByTo {
   '/seller/register': typeof SellerRegisterRoute
   '/buyer': typeof BuyerIndexRoute
   '/seller': typeof SellerIndexRoute
-  '/admin/layout/analytics': typeof AdminLayoutAnalyticsRoute
-  '/admin/layout/audit-logs': typeof AdminLayoutAuditLogsRoute
-  '/admin/layout/dashboard': typeof AdminLayoutDashboardRoute
-  '/admin/layout/disputes': typeof AdminLayoutDisputesRoute
-  '/admin/layout/help': typeof AdminLayoutHelpRoute
-  '/admin/layout/kyc': typeof AdminLayoutKycRoute
-  '/admin/layout/listings': typeof AdminLayoutListingsRoute
-  '/admin/layout/payouts': typeof AdminLayoutPayoutsRoute
-  '/admin/layout/sellers': typeof AdminLayoutSellersRoute
-  '/admin/layout/settings': typeof AdminLayoutSettingsRoute
   '/buyer/checkout/$id': typeof BuyerCheckoutIdRoute
   '/buyer/product/$id': typeof BuyerProductIdRoute
   '/seller/listings/new': typeof SellerListingsNewRoute
@@ -305,7 +297,17 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/role': typeof RoleRoute
   '/zoom-parallax-demo': typeof ZoomParallaxDemoRoute
-  '/admin/layout': typeof AdminLayoutRouteWithChildren
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/audit-logs': typeof AdminAuditLogsRoute
+  '/admin/dashboard': typeof AdminDashboardRoute
+  '/admin/disputes': typeof AdminDisputesRoute
+  '/admin/help': typeof AdminHelpRoute
+  '/admin/kyc': typeof AdminKycRoute
+  '/admin/layout': typeof AdminLayoutRoute
+  '/admin/listings': typeof AdminListingsRoute
+  '/admin/payouts': typeof AdminPayoutsRoute
+  '/admin/sellers': typeof AdminSellersRoute
+  '/admin/settings': typeof AdminSettingsRoute
   '/buyer/browse': typeof BuyerBrowseRoute
   '/buyer/notifications': typeof BuyerNotificationsRoute
   '/buyer/orders': typeof BuyerOrdersRoute
@@ -318,16 +320,6 @@ export interface FileRoutesById {
   '/seller/register': typeof SellerRegisterRoute
   '/buyer/': typeof BuyerIndexRoute
   '/seller/': typeof SellerIndexRoute
-  '/admin/layout/analytics': typeof AdminLayoutAnalyticsRoute
-  '/admin/layout/audit-logs': typeof AdminLayoutAuditLogsRoute
-  '/admin/layout/dashboard': typeof AdminLayoutDashboardRoute
-  '/admin/layout/disputes': typeof AdminLayoutDisputesRoute
-  '/admin/layout/help': typeof AdminLayoutHelpRoute
-  '/admin/layout/kyc': typeof AdminLayoutKycRoute
-  '/admin/layout/listings': typeof AdminLayoutListingsRoute
-  '/admin/layout/payouts': typeof AdminLayoutPayoutsRoute
-  '/admin/layout/sellers': typeof AdminLayoutSellersRoute
-  '/admin/layout/settings': typeof AdminLayoutSettingsRoute
   '/buyer/checkout/$id': typeof BuyerCheckoutIdRoute
   '/buyer/product/$id': typeof BuyerProductIdRoute
   '/seller/listings/new': typeof SellerListingsNewRoute
@@ -341,7 +333,17 @@ export interface FileRouteTypes {
     | '/login'
     | '/role'
     | '/zoom-parallax-demo'
+    | '/admin/analytics'
+    | '/admin/audit-logs'
+    | '/admin/dashboard'
+    | '/admin/disputes'
+    | '/admin/help'
+    | '/admin/kyc'
     | '/admin/layout'
+    | '/admin/listings'
+    | '/admin/payouts'
+    | '/admin/sellers'
+    | '/admin/settings'
     | '/buyer/browse'
     | '/buyer/notifications'
     | '/buyer/orders'
@@ -354,16 +356,6 @@ export interface FileRouteTypes {
     | '/seller/register'
     | '/buyer/'
     | '/seller/'
-    | '/admin/layout/analytics'
-    | '/admin/layout/audit-logs'
-    | '/admin/layout/dashboard'
-    | '/admin/layout/disputes'
-    | '/admin/layout/help'
-    | '/admin/layout/kyc'
-    | '/admin/layout/listings'
-    | '/admin/layout/payouts'
-    | '/admin/layout/sellers'
-    | '/admin/layout/settings'
     | '/buyer/checkout/$id'
     | '/buyer/product/$id'
     | '/seller/listings/new'
@@ -375,7 +367,17 @@ export interface FileRouteTypes {
     | '/login'
     | '/role'
     | '/zoom-parallax-demo'
+    | '/admin/analytics'
+    | '/admin/audit-logs'
+    | '/admin/dashboard'
+    | '/admin/disputes'
+    | '/admin/help'
+    | '/admin/kyc'
     | '/admin/layout'
+    | '/admin/listings'
+    | '/admin/payouts'
+    | '/admin/sellers'
+    | '/admin/settings'
     | '/buyer/browse'
     | '/buyer/notifications'
     | '/buyer/orders'
@@ -388,16 +390,6 @@ export interface FileRouteTypes {
     | '/seller/register'
     | '/buyer'
     | '/seller'
-    | '/admin/layout/analytics'
-    | '/admin/layout/audit-logs'
-    | '/admin/layout/dashboard'
-    | '/admin/layout/disputes'
-    | '/admin/layout/help'
-    | '/admin/layout/kyc'
-    | '/admin/layout/listings'
-    | '/admin/layout/payouts'
-    | '/admin/layout/sellers'
-    | '/admin/layout/settings'
     | '/buyer/checkout/$id'
     | '/buyer/product/$id'
     | '/seller/listings/new'
@@ -409,7 +401,17 @@ export interface FileRouteTypes {
     | '/login'
     | '/role'
     | '/zoom-parallax-demo'
+    | '/admin/analytics'
+    | '/admin/audit-logs'
+    | '/admin/dashboard'
+    | '/admin/disputes'
+    | '/admin/help'
+    | '/admin/kyc'
     | '/admin/layout'
+    | '/admin/listings'
+    | '/admin/payouts'
+    | '/admin/sellers'
+    | '/admin/settings'
     | '/buyer/browse'
     | '/buyer/notifications'
     | '/buyer/orders'
@@ -422,16 +424,6 @@ export interface FileRouteTypes {
     | '/seller/register'
     | '/buyer/'
     | '/seller/'
-    | '/admin/layout/analytics'
-    | '/admin/layout/audit-logs'
-    | '/admin/layout/dashboard'
-    | '/admin/layout/disputes'
-    | '/admin/layout/help'
-    | '/admin/layout/kyc'
-    | '/admin/layout/listings'
-    | '/admin/layout/payouts'
-    | '/admin/layout/sellers'
-    | '/admin/layout/settings'
     | '/buyer/checkout/$id'
     | '/buyer/product/$id'
     | '/seller/listings/new'
@@ -588,11 +580,81 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BuyerBrowseRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/sellers': {
+      id: '/admin/sellers'
+      path: '/sellers'
+      fullPath: '/admin/sellers'
+      preLoaderRoute: typeof AdminSellersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/payouts': {
+      id: '/admin/payouts'
+      path: '/payouts'
+      fullPath: '/admin/payouts'
+      preLoaderRoute: typeof AdminPayoutsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/listings': {
+      id: '/admin/listings'
+      path: '/listings'
+      fullPath: '/admin/listings'
+      preLoaderRoute: typeof AdminListingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/layout': {
       id: '/admin/layout'
       path: '/layout'
       fullPath: '/admin/layout'
       preLoaderRoute: typeof AdminLayoutRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/kyc': {
+      id: '/admin/kyc'
+      path: '/kyc'
+      fullPath: '/admin/kyc'
+      preLoaderRoute: typeof AdminKycRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/help': {
+      id: '/admin/help'
+      path: '/help'
+      fullPath: '/admin/help'
+      preLoaderRoute: typeof AdminHelpRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/disputes': {
+      id: '/admin/disputes'
+      path: '/disputes'
+      fullPath: '/admin/disputes'
+      preLoaderRoute: typeof AdminDisputesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/dashboard': {
+      id: '/admin/dashboard'
+      path: '/dashboard'
+      fullPath: '/admin/dashboard'
+      preLoaderRoute: typeof AdminDashboardRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/audit-logs': {
+      id: '/admin/audit-logs'
+      path: '/audit-logs'
+      fullPath: '/admin/audit-logs'
+      preLoaderRoute: typeof AdminAuditLogsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/analytics': {
+      id: '/admin/analytics'
+      path: '/analytics'
+      fullPath: '/admin/analytics'
+      preLoaderRoute: typeof AdminAnalyticsRouteImport
       parentRoute: typeof AdminRoute
     }
     '/seller/listings/new': {
@@ -616,115 +678,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BuyerCheckoutIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/layout/settings': {
-      id: '/admin/layout/settings'
-      path: '/settings'
-      fullPath: '/admin/layout/settings'
-      preLoaderRoute: typeof AdminLayoutSettingsRouteImport
-      parentRoute: typeof AdminLayoutRoute
-    }
-    '/admin/layout/sellers': {
-      id: '/admin/layout/sellers'
-      path: '/sellers'
-      fullPath: '/admin/layout/sellers'
-      preLoaderRoute: typeof AdminLayoutSellersRouteImport
-      parentRoute: typeof AdminLayoutRoute
-    }
-    '/admin/layout/payouts': {
-      id: '/admin/layout/payouts'
-      path: '/payouts'
-      fullPath: '/admin/layout/payouts'
-      preLoaderRoute: typeof AdminLayoutPayoutsRouteImport
-      parentRoute: typeof AdminLayoutRoute
-    }
-    '/admin/layout/listings': {
-      id: '/admin/layout/listings'
-      path: '/listings'
-      fullPath: '/admin/layout/listings'
-      preLoaderRoute: typeof AdminLayoutListingsRouteImport
-      parentRoute: typeof AdminLayoutRoute
-    }
-    '/admin/layout/kyc': {
-      id: '/admin/layout/kyc'
-      path: '/kyc'
-      fullPath: '/admin/layout/kyc'
-      preLoaderRoute: typeof AdminLayoutKycRouteImport
-      parentRoute: typeof AdminLayoutRoute
-    }
-    '/admin/layout/help': {
-      id: '/admin/layout/help'
-      path: '/help'
-      fullPath: '/admin/layout/help'
-      preLoaderRoute: typeof AdminLayoutHelpRouteImport
-      parentRoute: typeof AdminLayoutRoute
-    }
-    '/admin/layout/disputes': {
-      id: '/admin/layout/disputes'
-      path: '/disputes'
-      fullPath: '/admin/layout/disputes'
-      preLoaderRoute: typeof AdminLayoutDisputesRouteImport
-      parentRoute: typeof AdminLayoutRoute
-    }
-    '/admin/layout/dashboard': {
-      id: '/admin/layout/dashboard'
-      path: '/dashboard'
-      fullPath: '/admin/layout/dashboard'
-      preLoaderRoute: typeof AdminLayoutDashboardRouteImport
-      parentRoute: typeof AdminLayoutRoute
-    }
-    '/admin/layout/audit-logs': {
-      id: '/admin/layout/audit-logs'
-      path: '/audit-logs'
-      fullPath: '/admin/layout/audit-logs'
-      preLoaderRoute: typeof AdminLayoutAuditLogsRouteImport
-      parentRoute: typeof AdminLayoutRoute
-    }
-    '/admin/layout/analytics': {
-      id: '/admin/layout/analytics'
-      path: '/analytics'
-      fullPath: '/admin/layout/analytics'
-      preLoaderRoute: typeof AdminLayoutAnalyticsRouteImport
-      parentRoute: typeof AdminLayoutRoute
-    }
   }
 }
 
-interface AdminLayoutRouteChildren {
-  AdminLayoutAnalyticsRoute: typeof AdminLayoutAnalyticsRoute
-  AdminLayoutAuditLogsRoute: typeof AdminLayoutAuditLogsRoute
-  AdminLayoutDashboardRoute: typeof AdminLayoutDashboardRoute
-  AdminLayoutDisputesRoute: typeof AdminLayoutDisputesRoute
-  AdminLayoutHelpRoute: typeof AdminLayoutHelpRoute
-  AdminLayoutKycRoute: typeof AdminLayoutKycRoute
-  AdminLayoutListingsRoute: typeof AdminLayoutListingsRoute
-  AdminLayoutPayoutsRoute: typeof AdminLayoutPayoutsRoute
-  AdminLayoutSellersRoute: typeof AdminLayoutSellersRoute
-  AdminLayoutSettingsRoute: typeof AdminLayoutSettingsRoute
-}
-
-const AdminLayoutRouteChildren: AdminLayoutRouteChildren = {
-  AdminLayoutAnalyticsRoute: AdminLayoutAnalyticsRoute,
-  AdminLayoutAuditLogsRoute: AdminLayoutAuditLogsRoute,
-  AdminLayoutDashboardRoute: AdminLayoutDashboardRoute,
-  AdminLayoutDisputesRoute: AdminLayoutDisputesRoute,
-  AdminLayoutHelpRoute: AdminLayoutHelpRoute,
-  AdminLayoutKycRoute: AdminLayoutKycRoute,
-  AdminLayoutListingsRoute: AdminLayoutListingsRoute,
-  AdminLayoutPayoutsRoute: AdminLayoutPayoutsRoute,
-  AdminLayoutSellersRoute: AdminLayoutSellersRoute,
-  AdminLayoutSettingsRoute: AdminLayoutSettingsRoute,
-}
-
-const AdminLayoutRouteWithChildren = AdminLayoutRoute._addFileChildren(
-  AdminLayoutRouteChildren,
-)
-
 interface AdminRouteChildren {
-  AdminLayoutRoute: typeof AdminLayoutRouteWithChildren
+  AdminAnalyticsRoute: typeof AdminAnalyticsRoute
+  AdminAuditLogsRoute: typeof AdminAuditLogsRoute
+  AdminDashboardRoute: typeof AdminDashboardRoute
+  AdminDisputesRoute: typeof AdminDisputesRoute
+  AdminHelpRoute: typeof AdminHelpRoute
+  AdminKycRoute: typeof AdminKycRoute
+  AdminLayoutRoute: typeof AdminLayoutRoute
+  AdminListingsRoute: typeof AdminListingsRoute
+  AdminPayoutsRoute: typeof AdminPayoutsRoute
+  AdminSellersRoute: typeof AdminSellersRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
-  AdminLayoutRoute: AdminLayoutRouteWithChildren,
+  AdminAnalyticsRoute: AdminAnalyticsRoute,
+  AdminAuditLogsRoute: AdminAuditLogsRoute,
+  AdminDashboardRoute: AdminDashboardRoute,
+  AdminDisputesRoute: AdminDisputesRoute,
+  AdminHelpRoute: AdminHelpRoute,
+  AdminKycRoute: AdminKycRoute,
+  AdminLayoutRoute: AdminLayoutRoute,
+  AdminListingsRoute: AdminListingsRoute,
+  AdminPayoutsRoute: AdminPayoutsRoute,
+  AdminSellersRoute: AdminSellersRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
 }
 
 const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)

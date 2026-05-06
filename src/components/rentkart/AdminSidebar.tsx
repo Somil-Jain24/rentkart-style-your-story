@@ -6,18 +6,18 @@ export function AdminSidebar() {
   const path = useRouterState({ select: (s) => s.location.pathname });
 
   const menuItems = [
-    { to: "/admin/layout/dashboard", label: "Dashboard", icon: LayoutDashboard, exact: true },
-    { to: "/admin/layout/listings", label: "Listing Approvals", icon: FileCheck, badge: "14" },
-    { to: "/admin/layout/kyc", label: "KYC Review", icon: Users, badge: "6" },
-    { to: "/admin/layout/disputes", label: "Disputes", icon: AlertTriangle, badge: "3" },
-    { to: "/admin/layout/payouts", label: "Payouts", icon: Wallet },
-    { to: "/admin/layout/sellers", label: "Seller Management", icon: Users },
-    { to: "/admin/layout/analytics", label: "Analytics", icon: BarChart3 },
-    { to: "/admin/layout/audit-logs", label: "Audit Logs", icon: LayoutDashboard },
+    { to: "/admin", label: "Dashboard", icon: LayoutDashboard, exact: true },
+    { to: "/admin/listings", label: "Listing Approvals", icon: FileCheck, badge: "14" },
+    { to: "/admin/kyc", label: "KYC Review", icon: Users, badge: "6" },
+    { to: "/admin/disputes", label: "Disputes", icon: AlertTriangle, badge: "3" },
+    { to: "/admin/payouts", label: "Payouts", icon: Wallet },
+    { to: "/admin/sellers", label: "Seller Management", icon: Users },
+    { to: "/admin/analytics", label: "Analytics", icon: BarChart3 },
+    { to: "/admin/audit-logs", label: "Audit Logs", icon: LayoutDashboard },
   ];
 
   const bottomItems = [
-    { to: "/admin/layout/settings", label: "Settings", icon: Settings },
+    { to: "/admin/settings", label: "Settings", icon: Settings },
     { to: "/help", label: "Help & support", icon: HelpCircle },
   ];
 

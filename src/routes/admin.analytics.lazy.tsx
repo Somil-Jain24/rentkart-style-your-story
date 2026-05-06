@@ -4,7 +4,7 @@ import { AdminPageHeader } from "@/components/admin/AdminPageHeader";
 import { StatsCard } from "@/components/admin/StatsCard";
 import { useState } from "react";
 
-export const Route = createLazyFileRoute("/admin/layout/analytics")({
+export const Route = createLazyFileRoute("/admin/analytics")({
   component: AnalyticsPage,
 });
 
