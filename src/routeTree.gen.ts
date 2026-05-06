@@ -31,8 +31,11 @@ import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
 import { Route as AdminSellersRouteImport } from './routes/admin.sellers'
 import { Route as AdminPayoutsRouteImport } from './routes/admin.payouts'
 import { Route as AdminListingsRouteImport } from './routes/admin.listings'
+import { Route as AdminLayoutRouteImport } from './routes/admin.layout'
 import { Route as AdminKycRouteImport } from './routes/admin.kyc'
+import { Route as AdminHelpRouteImport } from './routes/admin.help'
 import { Route as AdminDisputesRouteImport } from './routes/admin.disputes'
+import { Route as AdminDashboardRouteImport } from './routes/admin.dashboard'
 import { Route as AdminAuditLogsRouteImport } from './routes/admin.audit-logs'
 import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
 import { Route as SellerListingsNewRouteImport } from './routes/seller.listings.new'
@@ -63,7 +66,7 @@ const AdminRoute = AdminRouteImport.update({
   id: '/admin',
   path: '/admin',
   getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/admin.lazy').then((d) => d.Route))
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -133,42 +136,69 @@ const AdminSettingsRoute = AdminSettingsRouteImport.update({
   id: '/settings',
   path: '/settings',
   getParentRoute: () => AdminRoute,
-} as any)
+} as any).lazy(() =>
+  import('./routes/admin.settings.lazy').then((d) => d.Route),
+)
 const AdminSellersRoute = AdminSellersRouteImport.update({
   id: '/sellers',
   path: '/sellers',
   getParentRoute: () => AdminRoute,
-} as any)
+} as any).lazy(() => import('./routes/admin.sellers.lazy').then((d) => d.Route))
 const AdminPayoutsRoute = AdminPayoutsRouteImport.update({
   id: '/payouts',
   path: '/payouts',
   getParentRoute: () => AdminRoute,
-} as any)
+} as any).lazy(() => import('./routes/admin.payouts.lazy').then((d) => d.Route))
 const AdminListingsRoute = AdminListingsRouteImport.update({
   id: '/listings',
   path: '/listings',
+  getParentRoute: () => AdminRoute,
+} as any).lazy(() =>
+  import('./routes/admin.listings.lazy').then((d) => d.Route),
+)
+const AdminLayoutRoute = AdminLayoutRouteImport.update({
+  id: '/layout',
+  path: '/layout',
   getParentRoute: () => AdminRoute,
 } as any)
 const AdminKycRoute = AdminKycRouteImport.update({
   id: '/kyc',
   path: '/kyc',
   getParentRoute: () => AdminRoute,
-} as any)
+} as any).lazy(() => import('./routes/admin.kyc.lazy').then((d) => d.Route))
+const AdminHelpRoute = AdminHelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => AdminRoute,
+} as any).lazy(() => import('./routes/admin.help.lazy').then((d) => d.Route))
 const AdminDisputesRoute = AdminDisputesRouteImport.update({
   id: '/disputes',
   path: '/disputes',
   getParentRoute: () => AdminRoute,
-} as any)
+} as any).lazy(() =>
+  import('./routes/admin.disputes.lazy').then((d) => d.Route),
+)
+const AdminDashboardRoute = AdminDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AdminRoute,
+} as any).lazy(() =>
+  import('./routes/admin.dashboard.lazy').then((d) => d.Route),
+)
 const AdminAuditLogsRoute = AdminAuditLogsRouteImport.update({
   id: '/audit-logs',
   path: '/audit-logs',
   getParentRoute: () => AdminRoute,
-} as any)
+} as any).lazy(() =>
+  import('./routes/admin.audit-logs.lazy').then((d) => d.Route),
+)
 const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
   id: '/analytics',
   path: '/analytics',
   getParentRoute: () => AdminRoute,
-} as any)
+} as any).lazy(() =>
+  import('./routes/admin.analytics.lazy').then((d) => d.Route),
+)
 const SellerListingsNewRoute = SellerListingsNewRouteImport.update({
   id: '/new',
   path: '/new',
@@ -200,8 +230,11 @@ export interface FileRoutesByFullPath {
   '/zoom-parallax-demo': typeof ZoomParallaxDemoRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/audit-logs': typeof AdminAuditLogsRoute
+  '/admin/dashboard': typeof AdminDashboardRoute
   '/admin/disputes': typeof AdminDisputesRoute
+  '/admin/help': typeof AdminHelpRoute
   '/admin/kyc': typeof AdminKycRoute
+  '/admin/layout': typeof AdminLayoutRoute
   '/admin/listings': typeof AdminListingsRoute
   '/admin/payouts': typeof AdminPayoutsRoute
   '/admin/sellers': typeof AdminSellersRoute
@@ -231,8 +264,11 @@ export interface FileRoutesByTo {
   '/zoom-parallax-demo': typeof ZoomParallaxDemoRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/audit-logs': typeof AdminAuditLogsRoute
+  '/admin/dashboard': typeof AdminDashboardRoute
   '/admin/disputes': typeof AdminDisputesRoute
+  '/admin/help': typeof AdminHelpRoute
   '/admin/kyc': typeof AdminKycRoute
+  '/admin/layout': typeof AdminLayoutRoute
   '/admin/listings': typeof AdminListingsRoute
   '/admin/payouts': typeof AdminPayoutsRoute
   '/admin/sellers': typeof AdminSellersRoute
@@ -263,8 +299,11 @@ export interface FileRoutesById {
   '/zoom-parallax-demo': typeof ZoomParallaxDemoRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/audit-logs': typeof AdminAuditLogsRoute
+  '/admin/dashboard': typeof AdminDashboardRoute
   '/admin/disputes': typeof AdminDisputesRoute
+  '/admin/help': typeof AdminHelpRoute
   '/admin/kyc': typeof AdminKycRoute
+  '/admin/layout': typeof AdminLayoutRoute
   '/admin/listings': typeof AdminListingsRoute
   '/admin/payouts': typeof AdminPayoutsRoute
   '/admin/sellers': typeof AdminSellersRoute
@@ -296,8 +335,11 @@ export interface FileRouteTypes {
     | '/zoom-parallax-demo'
     | '/admin/analytics'
     | '/admin/audit-logs'
+    | '/admin/dashboard'
     | '/admin/disputes'
+    | '/admin/help'
     | '/admin/kyc'
+    | '/admin/layout'
     | '/admin/listings'
     | '/admin/payouts'
     | '/admin/sellers'
@@ -327,8 +369,11 @@ export interface FileRouteTypes {
     | '/zoom-parallax-demo'
     | '/admin/analytics'
     | '/admin/audit-logs'
+    | '/admin/dashboard'
     | '/admin/disputes'
+    | '/admin/help'
     | '/admin/kyc'
+    | '/admin/layout'
     | '/admin/listings'
     | '/admin/payouts'
     | '/admin/sellers'
@@ -358,8 +403,11 @@ export interface FileRouteTypes {
     | '/zoom-parallax-demo'
     | '/admin/analytics'
     | '/admin/audit-logs'
+    | '/admin/dashboard'
     | '/admin/disputes'
+    | '/admin/help'
     | '/admin/kyc'
+    | '/admin/layout'
     | '/admin/listings'
     | '/admin/payouts'
     | '/admin/sellers'
@@ -560,6 +608,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminListingsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/layout': {
+      id: '/admin/layout'
+      path: '/layout'
+      fullPath: '/admin/layout'
+      preLoaderRoute: typeof AdminLayoutRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/kyc': {
       id: '/admin/kyc'
       path: '/kyc'
@@ -567,11 +622,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminKycRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/help': {
+      id: '/admin/help'
+      path: '/help'
+      fullPath: '/admin/help'
+      preLoaderRoute: typeof AdminHelpRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/disputes': {
       id: '/admin/disputes'
       path: '/disputes'
       fullPath: '/admin/disputes'
       preLoaderRoute: typeof AdminDisputesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/dashboard': {
+      id: '/admin/dashboard'
+      path: '/dashboard'
+      fullPath: '/admin/dashboard'
+      preLoaderRoute: typeof AdminDashboardRouteImport
       parentRoute: typeof AdminRoute
     }
     '/admin/audit-logs': {
@@ -615,8 +684,11 @@ declare module '@tanstack/react-router' {
 interface AdminRouteChildren {
   AdminAnalyticsRoute: typeof AdminAnalyticsRoute
   AdminAuditLogsRoute: typeof AdminAuditLogsRoute
+  AdminDashboardRoute: typeof AdminDashboardRoute
   AdminDisputesRoute: typeof AdminDisputesRoute
+  AdminHelpRoute: typeof AdminHelpRoute
   AdminKycRoute: typeof AdminKycRoute
+  AdminLayoutRoute: typeof AdminLayoutRoute
   AdminListingsRoute: typeof AdminListingsRoute
   AdminPayoutsRoute: typeof AdminPayoutsRoute
   AdminSellersRoute: typeof AdminSellersRoute
@@ -626,8 +698,11 @@ interface AdminRouteChildren {
 const AdminRouteChildren: AdminRouteChildren = {
   AdminAnalyticsRoute: AdminAnalyticsRoute,
   AdminAuditLogsRoute: AdminAuditLogsRoute,
+  AdminDashboardRoute: AdminDashboardRoute,
   AdminDisputesRoute: AdminDisputesRoute,
+  AdminHelpRoute: AdminHelpRoute,
   AdminKycRoute: AdminKycRoute,
+  AdminLayoutRoute: AdminLayoutRoute,
   AdminListingsRoute: AdminListingsRoute,
   AdminPayoutsRoute: AdminPayoutsRoute,
   AdminSellersRoute: AdminSellersRoute,
