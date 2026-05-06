@@ -63,7 +63,7 @@ const AdminRoute = AdminRouteImport.update({
   id: '/admin',
   path: '/admin',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/admin.lazy').then((d) => d.Route))
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -128,7 +128,7 @@ const BuyerBrowseRoute = BuyerBrowseRouteImport.update({
   id: '/buyer/browse',
   path: '/buyer/browse',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/buyer.browse.lazy').then((d) => d.Route))
 const AdminSettingsRoute = AdminSettingsRouteImport.update({
   id: '/settings',
   path: '/settings',
@@ -173,17 +173,23 @@ const SellerListingsNewRoute = SellerListingsNewRouteImport.update({
   id: '/new',
   path: '/new',
   getParentRoute: () => SellerListingsRoute,
-} as any)
+} as any).lazy(() =>
+  import('./routes/seller.listings.new.lazy').then((d) => d.Route),
+)
 const BuyerProductIdRoute = BuyerProductIdRouteImport.update({
   id: '/buyer/product/$id',
   path: '/buyer/product/$id',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/buyer.product.$id.lazy').then((d) => d.Route),
+)
 const BuyerCheckoutIdRoute = BuyerCheckoutIdRouteImport.update({
   id: '/buyer/checkout/$id',
   path: '/buyer/checkout/$id',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/buyer.checkout.$id.lazy').then((d) => d.Route),
+)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute

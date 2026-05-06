@@ -21,53 +21,49 @@ export const Route = createFileRoute("/")({
 
 function Landing() {
   const [featured, setFeatured] = React.useState(listings.slice(0, 4));
-  const [parallaxOffset, setParallaxOffset] = React.useState({ x: 0, y: 0 });
   const cardGridRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     const lenis = new Lenis();
+    let rafId: number;
 
     function raf(time: number) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
+    };
   }, []);
 
   // Card shuffle animation every 6 seconds
   React.useEffect(() => {
     const shuffleInterval = setInterval(() => {
-      const randomCards = listings.sort(() => Math.random() - 0.5).slice(0, 4);
+      const randomCards = [...listings].sort(() => Math.random() - 0.5).slice(0, 4);
       setFeatured(randomCards);
     }, 6000);
 
     return () => clearInterval(shuffleInterval);
   }, []);
 
-  // Mouse parallax effect for card grid
+  // Mouse parallax effect for card grid — uses direct DOM manipulation to avoid React re-renders
   React.useEffect(() => {
+    const el = cardGridRef.current;
+    if (!el || window.innerWidth < 1024) return;
+
     const handleMouseMove = (e: MouseEvent) => {
-      if (!cardGridRef.current) return;
-
-      const rect = cardGridRef.current.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-
-      const distX = (e.clientX - centerX) / rect.width;
-      const distY = (e.clientY - centerY) / rect.height;
-
-      setParallaxOffset({
-        x: distX * 12,
-        y: distY * 12
-      });
+      const rect = el.getBoundingClientRect();
+      const distX = (e.clientX - (rect.left + rect.width / 2)) / rect.width;
+      const distY = (e.clientY - (rect.top + rect.height / 2)) / rect.height;
+      el.style.transform = `translate(${distX * 12}px, ${distY * 12}px)`;
     };
 
-    // Only enable parallax on desktop
-    if (window.innerWidth >= 1024) {
-      window.addEventListener('mousemove', handleMouseMove);
-      return () => window.removeEventListener('mousemove', handleMouseMove);
-    }
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   const parallaxImages = [
@@ -135,7 +131,7 @@ function Landing() {
 
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-3 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-6">
           {/* Left Content */}
-          <div className="animate-breathe">
+          <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground shadow-soft animate-fade-in-up" style={{ animationDelay: '0s' }}>
               <Sparkles className="h-3.5 w-3.5 text-primary" />
               Trusted by 1.2 lakh+ Indians for events, work, travel & more
@@ -194,14 +190,14 @@ function Landing() {
             ref={cardGridRef}
             className="relative"
             style={{
-              transform: `translate(${parallaxOffset.x}px, ${parallaxOffset.y}px)`,
-              transition: 'transform 0.1s ease-out'
+              transition: 'transform 0.1s ease-out',
+              willChange: 'transform',
             }}
           >
             <div className="grid grid-cols-2 gap-4">
               {featured.map((l, i) => (
                 <div
-                  key={`${l.id}-${Math.random()}`}
+                  key={l.id}
                   className="group relative animate-slide-in-up hover:z-10"
                   style={{
                     animationDelay: `${0.6 + i * 0.1}s`,
@@ -212,13 +208,6 @@ function Landing() {
                     <div className="absolute inset-0 rounded-2xl transition-all duration-300 group-hover:bg-black/10"></div>
                   </div>
 
-                  {/* Floating animation for cards */}
-                  <style>{`
-                    @keyframes floatCard${i} {
-                      0%, 100% { transform: translateY(0px); }
-                      50% { transform: translateY(-8px); }
-                    }
-                  `}</style>
                 </div>
               ))}
             </div>
