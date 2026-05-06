@@ -1,5 +1,6 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
 import { Boxes, FileCheck, AlertTriangle, TrendingUp, Clock, BarChart3, CheckCircle, XCircle, Users, ShieldCheck } from "lucide-react";
+import { useNavigate } from "@tanstack/react-router";
 import { AdminPageHeader } from "@/components/admin/AdminPageHeader";
 import { StatsCard } from "@/components/admin/StatsCard";
 import { QuickActionsPanel } from "@/components/admin/QuickActionsPanel";
@@ -10,6 +11,7 @@ export const Route = createLazyFileRoute("/admin/dashboard")({
 });
 
 function OperationsDashboard() {
+  const navigate = useNavigate();
   const recentActivity: ActivityItem[] = [
     {
       id: "1",
@@ -45,10 +47,10 @@ function OperationsDashboard() {
   ];
 
   const quickActions = [
-    { label: "Review Listings", count: 24 },
-    { label: "Approve KYC", count: 12 },
-    { label: "Resolve Disputes", count: 8 },
-    { label: "Process Payouts", count: 18 },
+    { label: "Review Listings", count: 24, onClick: () => navigate({ to: "/admin/listings" }) },
+    { label: "Approve KYC", count: 12, onClick: () => navigate({ to: "/admin/kyc" }) },
+    { label: "Resolve Disputes", count: 8, onClick: () => navigate({ to: "/admin/disputes" }) },
+    { label: "Process Payouts", count: 18, onClick: () => navigate({ to: "/admin/payouts" }) },
   ];
 
   return (
@@ -144,22 +146,22 @@ function OperationsDashboard() {
                 Audit-logged manual interventions. All actions require dual-approval above ₹50,000.
               </p>
               <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-                <button className="h-10 rounded-lg border border-border bg-background px-3 text-sm font-medium hover:bg-surface-alt transition-colors">
+                <button onClick={() => alert("Force release hold action initiated")} className="h-10 rounded-lg border border-border bg-background px-3 text-sm font-medium hover:bg-surface-alt transition-colors">
                   Force release hold
                 </button>
-                <button className="h-10 rounded-lg border border-red-300 bg-red-50 px-3 text-sm font-medium text-red-700 hover:bg-red-100 transition-colors">
+                <button onClick={() => alert("Suspend seller action initiated")} className="h-10 rounded-lg border border-red-300 bg-red-50 px-3 text-sm font-medium text-red-700 hover:bg-red-100 transition-colors">
                   Suspend seller
                 </button>
-                <button className="h-10 rounded-lg border border-border bg-background px-3 text-sm font-medium hover:bg-surface-alt transition-colors">
+                <button onClick={() => alert("Cancel order + refund action initiated")} className="h-10 rounded-lg border border-border bg-background px-3 text-sm font-medium hover:bg-surface-alt transition-colors">
                   Cancel order + refund
                 </button>
-                <button className="h-10 rounded-lg border border-border bg-background px-3 text-sm font-medium hover:bg-surface-alt transition-colors">
+                <button onClick={() => alert("Issue store credit action initiated")} className="h-10 rounded-lg border border-border bg-background px-3 text-sm font-medium hover:bg-surface-alt transition-colors">
                   Issue store credit
                 </button>
-                <button className="h-10 rounded-lg border border-border bg-background px-3 text-sm font-medium hover:bg-surface-alt transition-colors">
+                <button onClick={() => alert("Trigger payout retry action initiated")} className="h-10 rounded-lg border border-border bg-background px-3 text-sm font-medium hover:bg-surface-alt transition-colors">
                   Trigger payout retry
                 </button>
-                <button className="h-10 rounded-lg border border-yellow-300 bg-yellow-50 px-3 text-sm font-medium text-yellow-700 hover:bg-yellow-100 transition-colors">
+                <button onClick={() => alert("Block listing action initiated")} className="h-10 rounded-lg border border-yellow-300 bg-yellow-50 px-3 text-sm font-medium text-yellow-700 hover:bg-yellow-100 transition-colors">
                   Block listing
                 </button>
               </div>

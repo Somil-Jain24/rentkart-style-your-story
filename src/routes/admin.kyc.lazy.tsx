@@ -55,6 +55,22 @@ function KYCReviewPage() {
 
   const [selectedSeller, setSelectedSeller] = useState<Seller>(sellers[0]);
 
+  const handleApproveVerification = () => {
+    alert(`KYC approved for ${selectedSeller.name}`);
+  };
+
+  const handleRejectVerification = () => {
+    alert(`KYC rejected for ${selectedSeller.name}`);
+  };
+
+  const handleRequestReupload = () => {
+    alert(`Re-upload requested for ${selectedSeller.name}`);
+  };
+
+  const handleReviewDocument = (docType: string) => {
+    alert(`Opening detailed review for ${docType} document`);
+  };
+
   const documents: Document[] = [
     {
       type: "aadhaar",
@@ -206,7 +222,7 @@ function KYCReviewPage() {
                     </div>
                   </div>
 
-                  <button className="w-full py-2 rounded-lg border border-border hover:bg-surface-alt text-xs font-semibold transition-colors">
+                  <button onClick={() => handleReviewDocument(doc.type)} className="w-full py-2 rounded-lg border border-border hover:bg-surface-alt text-xs font-semibold transition-colors">
                     Review
                   </button>
                 </div>
@@ -243,13 +259,13 @@ function KYCReviewPage() {
 
             {/* Actions Section */}
             <div className="flex gap-3">
-              <button className="flex-1 px-4 py-3 rounded-lg bg-green-600 text-white font-semibold hover:bg-green-700 transition-colors">
+              <button onClick={handleApproveVerification} className="flex-1 px-4 py-3 rounded-lg bg-green-600 text-white font-semibold hover:bg-green-700 transition-colors">
                 Approve Verification
               </button>
-              <button className="flex-1 px-4 py-3 rounded-lg border border-red-300 bg-red-50 text-red-700 font-semibold hover:bg-red-100 transition-colors">
+              <button onClick={handleRejectVerification} className="flex-1 px-4 py-3 rounded-lg border border-red-300 bg-red-50 text-red-700 font-semibold hover:bg-red-100 transition-colors">
                 Reject Verification
               </button>
-              <button className="flex-1 px-4 py-3 rounded-lg border border-border bg-background font-semibold hover:bg-surface-alt transition-colors">
+              <button onClick={handleRequestReupload} className="flex-1 px-4 py-3 rounded-lg border border-border bg-background font-semibold hover:bg-surface-alt transition-colors">
                 Request Re-upload
               </button>
             </div>
