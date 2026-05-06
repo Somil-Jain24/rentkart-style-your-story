@@ -6,7 +6,7 @@ export function AdminSidebar() {
   const path = useRouterState({ select: (s) => s.location.pathname });
 
   const menuItems = [
-    { to: "/admin", label: "Dashboard", icon: LayoutDashboard, exact: true },
+    { to: "/admin/dashboard", label: "Dashboard", icon: LayoutDashboard, exact: true },
     { to: "/admin/listings", label: "Listing Approvals", icon: FileCheck, badge: "14" },
     { to: "/admin/kyc", label: "KYC Review", icon: Users, badge: "6" },
     { to: "/admin/disputes", label: "Disputes", icon: AlertTriangle, badge: "3" },

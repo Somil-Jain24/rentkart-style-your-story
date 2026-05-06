@@ -22,7 +22,7 @@ interface Listing {
 }
 
 function ListingApprovalsPage() {
-  const [listings] = useState<Listing[]>([
+  const [listings, setListings] = useState<Listing[]>([
     {
       id: "RK-10391",
       name: "Crystal Embellished Saree",
@@ -73,6 +73,36 @@ function ListingApprovalsPage() {
     },
   ]);
 
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filterStatus, setFilterStatus] = useState("All Status");
+  const [filterCategory, setFilterCategory] = useState("All Categories");
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const handleApproveListing = (id: string) => {
+    setListings(listings.map(l => l.id === id ? { ...l, status: "approved" } : l));
+    alert(`Listing ${id} approved!`);
+  };
+
+  const handleRejectListing = (id: string) => {
+    setListings(listings.map(l => l.id === id ? { ...l, status: "rejected" } : l));
+    alert(`Listing ${id} rejected!`);
+  };
+
+  const handleViewDetails = (id: string) => {
+    alert(`Opening details for listing ${id}`);
+  };
+
+  const filteredListings = listings.filter(listing => {
+    const matchesSearch = listing.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         listing.brand.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         listing.seller.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesStatus = filterStatus === "All Status" ||
+                         listing.status === filterStatus.toLowerCase();
+    const matchesCategory = filterCategory === "All Categories" ||
+                           listing.category === filterCategory;
+    return matchesSearch && matchesStatus && matchesCategory;
+  });
+
   return (
     <div className="min-h-screen bg-background">
       <div className="px-4 py-8 lg:px-8 max-w-7xl mx-auto">
@@ -89,10 +119,12 @@ function ListingApprovalsPage() {
               type="text"
               placeholder="Search listings by name, brand, or seller…"
               className="w-full pl-10 pr-4 py-2 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
 
-          <select className="px-4 py-2 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+          <select className="px-4 py-2 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary" value={filterCategory} onChange={(e) => setFilterCategory(e.target.value)}>
             <option>All Categories</option>
             <option>Women's Ethnic</option>
             <option>Men's Ethnic</option>
@@ -103,14 +135,14 @@ function ListingApprovalsPage() {
             <option>All Sellers</option>
           </select>
 
-          <select className="px-4 py-2 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+          <select className="px-4 py-2 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary" value={filterStatus} onChange={(e) => setFilterStatus(e.target.value)}>
             <option>All Status</option>
             <option>Pending</option>
             <option>Approved</option>
             <option>Rejected</option>
           </select>
 
-          <button className="px-4 py-2 rounded-lg border border-border bg-background text-sm font-medium hover:bg-surface-alt transition-colors">
+          <button onClick={() => alert("Bulk actions menu opened")} className="px-4 py-2 rounded-lg border border-border bg-background text-sm font-medium hover:bg-surface-alt transition-colors">
             Bulk Actions
           </button>
         </div>
@@ -132,7 +164,7 @@ function ListingApprovalsPage() {
                 </tr>
               </thead>
               <tbody>
-                {listings.map((listing) => (
+                {filteredListings.map((listing) => (
                   <tr key={listing.id} className="border-b border-border hover:bg-surface-alt transition-colors">
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
@@ -161,15 +193,15 @@ function ListingApprovalsPage() {
                       <div className="flex gap-2">
                         {listing.status === "pending" && (
                           <>
-                            <button className="px-3 py-1 rounded-lg bg-green-100 text-green-700 hover:bg-green-200 text-xs font-semibold transition-colors">
+                            <button onClick={() => handleApproveListing(listing.id)} className="px-3 py-1 rounded-lg bg-green-100 text-green-700 hover:bg-green-200 text-xs font-semibold transition-colors">
                               Approve
                             </button>
-                            <button className="px-3 py-1 rounded-lg border border-red-300 text-red-700 hover:bg-red-50 text-xs font-semibold transition-colors">
+                            <button onClick={() => handleRejectListing(listing.id)} className="px-3 py-1 rounded-lg border border-red-300 text-red-700 hover:bg-red-50 text-xs font-semibold transition-colors">
                               Reject
                             </button>
                           </>
                         )}
-                        <button className="px-3 py-1 rounded-lg border border-border hover:bg-surface-alt text-xs font-semibold transition-colors">
+                        <button onClick={() => handleViewDetails(listing.id)} className="px-3 py-1 rounded-lg border border-border hover:bg-surface-alt text-xs font-semibold transition-colors">
                           Details
                         </button>
                       </div>
@@ -183,12 +215,12 @@ function ListingApprovalsPage() {
 
         {/* Pagination */}
         <div className="mt-6 flex items-center justify-between">
-          <p className="text-sm text-muted-foreground">Showing 1-4 of 24 pending listings</p>
+          <p className="text-sm text-muted-foreground">Showing {Math.min((currentPage - 1) * 4 + 1, filteredListings.length)}-{Math.min(currentPage * 4, filteredListings.length)} of {filteredListings.length} listings</p>
           <div className="flex gap-2">
-            <button className="px-3 py-2 rounded-lg border border-border hover:bg-surface-alt text-sm font-medium transition-colors">
+            <button onClick={() => setCurrentPage(p => Math.max(1, p - 1))} disabled={currentPage === 1} className="px-3 py-2 rounded-lg border border-border hover:bg-surface-alt text-sm font-medium transition-colors disabled:opacity-50">
               Previous
             </button>
-            <button className="px-3 py-2 rounded-lg border border-border hover:bg-surface-alt text-sm font-medium transition-colors">
+            <button onClick={() => setCurrentPage(p => p + 1)} disabled={currentPage * 4 >= filteredListings.length} className="px-3 py-2 rounded-lg border border-border hover:bg-surface-alt text-sm font-medium transition-colors disabled:opacity-50">
               Next
             </button>
           </div>
