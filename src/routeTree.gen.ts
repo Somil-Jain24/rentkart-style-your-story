@@ -31,7 +31,6 @@ import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
 import { Route as AdminSellersRouteImport } from './routes/admin.sellers'
 import { Route as AdminPayoutsRouteImport } from './routes/admin.payouts'
 import { Route as AdminListingsRouteImport } from './routes/admin.listings'
-import { Route as AdminLayoutRouteImport } from './routes/admin.layout'
 import { Route as AdminKycRouteImport } from './routes/admin.kyc'
 import { Route as AdminHelpRouteImport } from './routes/admin.help'
 import { Route as AdminDisputesRouteImport } from './routes/admin.disputes'
@@ -156,11 +155,6 @@ const AdminListingsRoute = AdminListingsRouteImport.update({
 } as any).lazy(() =>
   import('./routes/admin.listings.lazy').then((d) => d.Route),
 )
-const AdminLayoutRoute = AdminLayoutRouteImport.update({
-  id: '/layout',
-  path: '/layout',
-  getParentRoute: () => AdminRoute,
-} as any)
 const AdminKycRoute = AdminKycRouteImport.update({
   id: '/kyc',
   path: '/kyc',
@@ -234,7 +228,6 @@ export interface FileRoutesByFullPath {
   '/admin/disputes': typeof AdminDisputesRoute
   '/admin/help': typeof AdminHelpRoute
   '/admin/kyc': typeof AdminKycRoute
-  '/admin/layout': typeof AdminLayoutRoute
   '/admin/listings': typeof AdminListingsRoute
   '/admin/payouts': typeof AdminPayoutsRoute
   '/admin/sellers': typeof AdminSellersRoute
@@ -268,7 +261,6 @@ export interface FileRoutesByTo {
   '/admin/disputes': typeof AdminDisputesRoute
   '/admin/help': typeof AdminHelpRoute
   '/admin/kyc': typeof AdminKycRoute
-  '/admin/layout': typeof AdminLayoutRoute
   '/admin/listings': typeof AdminListingsRoute
   '/admin/payouts': typeof AdminPayoutsRoute
   '/admin/sellers': typeof AdminSellersRoute
@@ -303,7 +295,6 @@ export interface FileRoutesById {
   '/admin/disputes': typeof AdminDisputesRoute
   '/admin/help': typeof AdminHelpRoute
   '/admin/kyc': typeof AdminKycRoute
-  '/admin/layout': typeof AdminLayoutRoute
   '/admin/listings': typeof AdminListingsRoute
   '/admin/payouts': typeof AdminPayoutsRoute
   '/admin/sellers': typeof AdminSellersRoute
@@ -339,7 +330,6 @@ export interface FileRouteTypes {
     | '/admin/disputes'
     | '/admin/help'
     | '/admin/kyc'
-    | '/admin/layout'
     | '/admin/listings'
     | '/admin/payouts'
     | '/admin/sellers'
@@ -373,7 +363,6 @@ export interface FileRouteTypes {
     | '/admin/disputes'
     | '/admin/help'
     | '/admin/kyc'
-    | '/admin/layout'
     | '/admin/listings'
     | '/admin/payouts'
     | '/admin/sellers'
@@ -407,7 +396,6 @@ export interface FileRouteTypes {
     | '/admin/disputes'
     | '/admin/help'
     | '/admin/kyc'
-    | '/admin/layout'
     | '/admin/listings'
     | '/admin/payouts'
     | '/admin/sellers'
@@ -608,13 +596,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminListingsRouteImport
       parentRoute: typeof AdminRoute
     }
-    '/admin/layout': {
-      id: '/admin/layout'
-      path: '/layout'
-      fullPath: '/admin/layout'
-      preLoaderRoute: typeof AdminLayoutRouteImport
-      parentRoute: typeof AdminRoute
-    }
     '/admin/kyc': {
       id: '/admin/kyc'
       path: '/kyc'
@@ -688,7 +669,6 @@ interface AdminRouteChildren {
   AdminDisputesRoute: typeof AdminDisputesRoute
   AdminHelpRoute: typeof AdminHelpRoute
   AdminKycRoute: typeof AdminKycRoute
-  AdminLayoutRoute: typeof AdminLayoutRoute
   AdminListingsRoute: typeof AdminListingsRoute
   AdminPayoutsRoute: typeof AdminPayoutsRoute
   AdminSellersRoute: typeof AdminSellersRoute
@@ -702,7 +682,6 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminDisputesRoute: AdminDisputesRoute,
   AdminHelpRoute: AdminHelpRoute,
   AdminKycRoute: AdminKycRoute,
-  AdminLayoutRoute: AdminLayoutRoute,
   AdminListingsRoute: AdminListingsRoute,
   AdminPayoutsRoute: AdminPayoutsRoute,
   AdminSellersRoute: AdminSellersRoute,
