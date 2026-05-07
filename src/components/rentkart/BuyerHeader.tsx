@@ -21,9 +21,6 @@ export function BuyerHeader() {
           <Link to="/buyer/orders" className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-surface-alt hover:text-foreground">
             My Orders
           </Link>
-          <Link to="/help" className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-surface-alt hover:text-foreground">
-            Help
-          </Link>
         </nav>
 
         <div className="flex flex-1 items-center justify-end gap-2">

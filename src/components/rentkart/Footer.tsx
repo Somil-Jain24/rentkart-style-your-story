@@ -29,14 +29,13 @@ export function Footer() {
               <li><Link to="/buyer" className="hover:text-foreground">Discover</Link></li>
               <li><Link to="/buyer/browse" className="hover:text-foreground">Browse all</Link></li>
               <li><Link to="/role" className="hover:text-foreground">Become a seller</Link></li>
-              <li><Link to="/help" className="hover:text-foreground">Trust & safety</Link></li>
+              <li><a href="#" className="hover:text-foreground">Trust & safety</a></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-sm font-semibold text-foreground">Support</h4>
             <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/help" className="hover:text-foreground">Help centre</Link></li>
               <li><a className="hover:text-foreground" href="#">Refund policy</a></li>
               <li><a className="hover:text-foreground" href="#">Disputes</a></li>
               <li><a className="hover:text-foreground" href="#">Contact us</a></li>
