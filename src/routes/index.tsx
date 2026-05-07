@@ -106,7 +106,6 @@ function Landing() {
           <nav className="hidden items-center gap-6 text-sm font-medium text-muted-foreground md:flex">
             <a href="#how" className="hover:text-foreground">How it works</a>
             <a href="#trust" className="hover:text-foreground">Trust & safety</a>
-            <Link to="/help" className="hover:text-foreground">Help</Link>
             <Link to="/login" className="hover:text-foreground">Sign in</Link>
           </nav>
           <div className="flex items-center gap-2">

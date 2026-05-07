@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { LayoutDashboard, FileCheck, Users, AlertTriangle, Wallet, BarChart3, LogOut, Settings, HelpCircle } from "lucide-react";
+import { LayoutDashboard, FileCheck, Users, AlertTriangle, Wallet, BarChart3, LogOut, Settings } from "lucide-react";
 import { Logo } from "./Logo";
 
 export function AdminSidebar() {
@@ -18,7 +18,6 @@ export function AdminSidebar() {
 
   const bottomItems = [
     { to: "/admin/settings", label: "Settings", icon: Settings },
-    { to: "/help", label: "Help & support", icon: HelpCircle },
   ];
 
   return (
